@@ -18,37 +18,34 @@ export const saludar = ( nombre = 'sin nombre' ) => {
 }
 
 
-export const createHTMLFormulariAfegir = (llistaTicket,llistausers,llistaAssets) =>{
+
+export const creaHTMLFormulaariAfegir = (incide,user,assets) =>{
     let opcions='';
     let optionssed='';
     let optionsed='';
     let optionsge='';
     let optionsges='';
   
-    for(let i of llistaTicket.titul){
+    for(let i of incide.title){
       opcions += "<option value='" + i.id_asset + "'>"+i.title+"</option>"
     }
-  
+   
 
-    
-
-    for(let i of llistausers.autor){
+    for(let i of user.autor){
         optionsed += "<option value='"+i.author_id +"'> " + i.id_usuari + "'>"+i.username+""+"</option>"
-      }
+    }
 
 
 
-
-
-    for(let i of llistaTicket.tecnic ){
+    for(let i of incide.tecnic){
         optionssed += "<option value='"+i.assigned_id +"'> </option>"
     }
 
 
-    for(let i of llistaAssets.nom ){
-        optionsge += "<option value='"+i.assets_id +"'> "+i.id_asset+"'>" + i.model + "'></option>"
+    for(let i of assets.nom){
+        optionsge += "<option value=' "+i.id_asset+"'>" + i.model + "'></option>"
     }
-    for(let i of llistaAssets.localitzacio ){
+    for(let i of assets.localitzacio ){
         optionsges += "<option value='"+i.assets_id +"'> "+i.id_asset+"'>" +i.location+""+"</option>"
     }
   
@@ -76,14 +73,14 @@ export const createHTMLFormulariAfegir = (llistaTicket,llistausers,llistaAssets)
                     ${ optionsed }
                 </div>
 
-                <div class=col-md-12 mb-3>
+                <div class="col-md-12 mb-3">
                     <label for="tecnic" class="form-label">Tecnic</label>
                     <input type="text" class="form-control" id ="tecnic" placeholder="id">
-                ${ optionssed }    
+                    ${ optionssed }    
                 </div>
             
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-8 mb-3">
                     <label for="model" class="form-label">nom</label>
                     <select id="model" class="form-select" name="model">
                     ${ optionsge }
@@ -96,7 +93,7 @@ export const createHTMLFormulariAfegir = (llistaTicket,llistausers,llistaAssets)
                 </div>
 
                 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-8 mb-3">
                     <button id="enviar" type="button" class="btn btn-warning">Enviar</button>
                 </div>
 
