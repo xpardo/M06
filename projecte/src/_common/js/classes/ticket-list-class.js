@@ -1,42 +1,56 @@
-import tickets  from './tickets-class';
-
-export class AutorsList {
+export class TicketsList {
 
     constructor(tickets) {
 
         this.tickets=tickets;
-        //this.carregarLocalStorage();
-        //console.log(this.autors);
-    }
-
-    nouTecnic(tickets) {
-
-        this.tickets.push(tickets);
-        this.desarLocalStorage();
-
+        console.log(this.tickets);
 
     }
 
-    cercaTecnic(id) {
+    darrer_element() {
 
-        for (let i of this.tickets)
-        {
-            if (i.assigned_id == id)
-                return i.title + ", "+i.desc;
-        }
-        return " Tecnic Desconegut"
+        return this.ctikets.at(-1).id
     }
 
-    cercaTecnics(id_array) {
+    nouTickets(id) {
+
+
+        this.tikets.foreach( (v,i) => {
+
+            if (v.id==id)
+            {
+                delete this.tickets[i];
+                console.log (this.tickets)
+            }
+        })
+
+    }
+
+
+
+    esborraTickets(id) {
+        this.tikets.foreach( (v,i) => {
+
+            if (v.id==id)
+            {
+                delete this.tickets[i];
+                console.log (this.tickets)
+            }
+        })
         
-        let retorn='';
-
-        for (let i of id_array)
-        {
-            retorn += this.cercaTecnic(i)+"-"
-        }
-        return retorn.slice(0,-1); // Elimina el darrer '-'
     }
 
-    
+    desarLocalStorage() {
+
+        localStorage.setItem('tickets',JSON.stringify(this.tickets));
+    }
+    carregarLocalStorage() {
+
+        console.log("Aqui no entro")
+        this.tikets = ( localStorage.getItem('tickets') )
+            ? JSON.parse( localStorage.getItem('tickets') )
+            : [];
+
+    }
 }
+

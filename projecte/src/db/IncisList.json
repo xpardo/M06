@@ -1,0 +1,77 @@
+{
+    "usuaris":[ {
+    "id_usuari" : 0,
+    "username" : "armand",
+    "password" : "maletin",
+    "id_role" : 0
+  }, {
+    "id_usuari" : 1,
+    "username" : "pep",
+    "password" : "maletin",
+    "id_role" : 1
+  }, {
+    "id_usuari" : 2,
+    "username" : "jordi",
+    "password" : "maletin",
+    "id_role" : 3
+  }, {
+    "id_usuari" : 3,
+    "username" : "alicia",
+    "password" : "maletin",
+    "id_role" : 2
+  }, {
+    "id_usuari" : 4,
+    "username" : "cristina",
+    "password" : "maletin",
+    "id_role" : 0
+  } ],
+
+
+  "assets":
+  [ {
+    "id_asset" : 0,
+    "model" : "Monitor BENQ GW240",
+    "location" : "Servidors"
+  
+  },
+  {
+    "id_asset" : 1,
+    "model" : "Monitor BENQ GW240",
+    "location" : "Servidors"
+  
+  },
+  {
+    "id_asset" : 2,
+    "model" : "Teclat Lenovo",
+    "location" : "Servidors"
+  
+  },
+  {
+    "id_asset" : 3,
+    "model" : "Monitor BENQ GW240 / 1",
+    "location" : "Aula 106"
+  
+  },{
+    "id_asset" : 4,
+    "model" : "Monitor BENQ GW240 / 2",
+    "location" : "Aula 106"
+  
+  },{
+    "id_asset" : 5,
+    "model" : "Impressora Konica Minolta",
+    "location" : "Departament Informàtica"
+  
+  },{
+    "id_asset" : 6,
+    "model" : "Router Cisco XXXX",
+    "location" : "Servidors"
+  
+  },{
+    "id_asset" : 7,
+    "model" : "Projector Optmoa GT670",
+    "location" : "Aula 110"
+  
+  }]
+
+
+}

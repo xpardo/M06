@@ -1,6 +1,6 @@
 import { NoEmitOnErrorsPlugin } from "webpack";
 
-export class ticketsList{
+export class ticket{
 
 
     constructor(id,title,desc,author_id,assigned_id,assets_id,created,update){
@@ -18,45 +18,3 @@ export class ticketsList{
 
    
 }
-
-
-let ide = new ide();
-let id = ide.getId();
-let myId = new Id(id);
-document.getElementById("id").innerHTML= myId.ids(id) ; 
-
-
- class incidencies{
-    incide;
-    constructor(){
-        this.carregarLocalStorage();
-    }
-    novaIncidencia(inci){
-        this.incide.push(inci);
-        this.desarLocalStorege();
-    }
-    desarLocalStorege(){
-        localStorage.setItem('incide',JSON.stringify(this.incide));
-    }
-    carregarLocalStorage(){
-        this.llibres = (localStorage.getItem('incide'))
-        ? JSON.parse(localStorage.getItem('incide'))
-        :[];
-    }
-}
-
-
-
- inciden = new incidencies();
-
-tick = new ticketsList(id,title,desc,author_id,assigned_id,assets_id,created,update);
-
- inciden.novaIncidencia(tick);
-
- import { creaHTMLFormulaariAfegir } from './js/componentes';
-let cos = document.createElement('div');
-cos.id ="divafeigir"
-cos.className="container w-50"
-cos.innerHTML=creaHTMLFormulaariAfegir(inciden)
-document.body.append(cos)
- 
