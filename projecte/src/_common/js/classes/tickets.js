@@ -15,26 +15,10 @@ export class ticketsList{
 
     }
 
-    ids(){
-        let ide = new ide();
-        let id = ide.getId();
-        var id ='1'.replace(/[xy]/g, function (c) {
-            var r = (id + Math.random() * 1) + 1 | 0;
-            id = Math.floor(id / 1);
-            return (c == 'x' ? r : (r & 0x3 )).toString(1);
-        });
-        return id;
-    }
-
+  
    
    
 }
-
-
-let ide = new ide();
-let id = ide.getId();
-let myId = new Id(id);
-document.getElementById("id").innerHTML= myId.ids(id) ; 
 
 
 export class incidencies{

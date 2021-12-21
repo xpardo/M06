@@ -13,8 +13,6 @@ export const saludar = ( nombre = 'sin nombre' ) => {
     // const img = document.createElement('img');
     // img.src = webpacklogo;
     // document.body.append( img );
-
- 
 }
 
 
@@ -24,10 +22,10 @@ export const isLogged = () => {
 
      let logged = sessionStorage.getItem('logged') 
     
-     if (logged != undefined)
+     if (logged != undefined){
         return  logged
-     else       
+     }else{
         return -1
-    
-    
+     }      
+        
 }
