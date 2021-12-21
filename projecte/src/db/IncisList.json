@@ -71,7 +71,20 @@
     "model" : "Projector Optmoa GT670",
     "location" : "Aula 110"
   
-  }]
+  }],
+
+  "ticket": [{
+    "id":0,
+    "id_autors":[0],
+    "titol":"eincidencia",
+    "deesc":"esto es una incidencia",
+    "assigned_id":[0],
+    "assets_id":[0]
+    }]
 
 
 }
+
+
+
+

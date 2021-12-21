@@ -1,5 +1,3 @@
-import { NoEmitOnErrorsPlugin } from "webpack";
-
 export class ticket{
 
 

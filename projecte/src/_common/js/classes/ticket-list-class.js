@@ -12,6 +12,7 @@ export class TicketsList {
         return this.ctikets.at(-1).id
     }
 
+
     nouTickets(id) {
 
 
@@ -25,6 +26,17 @@ export class TicketsList {
         })
 
     }
+
+    cercaTicket(id) {
+
+        for (let i of this.tikets)
+        {
+            if (i.id == id)
+                return i.title
+        }
+        return "Tiket Desconeguda"
+    }
+    
 
 
 

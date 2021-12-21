@@ -29,3 +29,28 @@ export async function obtenirDades()  {
 
 }
 
+
+export async function setTicket(ticket,id) {
+
+    try {
+
+
+        const res= await  fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/Ticket/'+ id+'.json',
+        {
+             method: 'PUT',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(ticket)
+        })
+     
+
+    }
+    catch (error) {
+
+
+    }
+
+
+}
+

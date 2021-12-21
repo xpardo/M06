@@ -1,23 +1,20 @@
 
 export const ocultaLlistaTicket = () => {
-
-
-    
+   
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaUsuari,) =>{
+export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets) =>{
 
     let html=`
     <table class='table'>
         <thead>
             <tr>
-                <th>#Id</th>
+                <th>#id</th>
                 <th>title</th>
                 <th>Autors</th>
                 <th>Desc</th>
                 <th>Assets</th>
-                <th>Valoració</th>
                 <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>
             </tr>
         </thead>
@@ -30,14 +27,16 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,) =>{
         let cad_usuari= llistaUsuari.cercaUsuari(v.id_usuari)
         let cad_assets = Assets.cercaAssets(v.id_asset)
 
-        html += `<tr >
+        html += `
+        <tr >
         <td>${v.id}</td>
         <td><a href="">${v.title}</a></td>
         <td>${cad_usuari}</td>
         <td>${cad_assets}</td>
         <td>${v.desc}</td>
         <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
-        </tr>`
+        </tr>
+        `
         console.log(v.title)
     });
     
@@ -52,9 +51,6 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,) =>{
 
 export const veureTicket = (tickets) => {
 
-
-
     console.log(tickets);
-
 
 }

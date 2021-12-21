@@ -1,6 +1,4 @@
-
-
-export const creaHTMLFormulaariAfegir = (incide,user,assets) =>{
+export const creaHTMLFormulaariAfegir = (ticket) =>{
     
     let optionsed='';
     let optionssed='';
@@ -10,22 +8,22 @@ export const creaHTMLFormulaariAfegir = (incide,user,assets) =>{
    
    
 
-    for(let i of user.autor){
+    for(let i of ticket.autor){
         optionsed += "<option value='"+ i.id_usuari + "'>"+i.username+""+"</option>"
     }
 
 
 
-    for(let i of incide.tecnic){
+    for(let i of ticket.tecnic){
         optionssed += "<option value='"+i.assigned_id +"'> </option>"
     }
 
 
-    for(let i of assets.nom){
+    for(let i of ticket.nom){
         optionsge += "<option value=' "+i.id_asset+"'>" + i.model + "'></option>"
     }
-    for(let i of assets.localitzacio ){
-        optionsges += "<option value='"+i.assets_id +"'> "+i.id_asset+"'>" +i.location+""+"</option>"
+    for(let i of ticket.localitzacio ){
+        optionsges += "<option value=' "+i.id_asset+"'>" +i.location+""+"</option>"
     }
   
   

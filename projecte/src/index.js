@@ -18,7 +18,10 @@ import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"  
 
-
+/* 
+import { BoardList } from "./board-list-class.js"; 
+import { ComentList } from "./coment-list-class.js"; 
+ */
 
 const nombre = 'Xenia';
 
@@ -36,7 +39,7 @@ let heder = document.createElement('div');
 heder.innerHTML=header;
 document.body.append(heder);
 
-
+;
 
 import footer from "./_common/html/footer.html";
 let div = document.createElement('div');
@@ -51,27 +54,26 @@ let assets = new AssetsList();
 console.log(user)
 
 
-var incide;
+var ticket;
 
 obtenirDades().then((data) => {
     console.log(data)   
-    user = new UsuarisList(data[0]);
-    assets = new AssetsList(data[2]);
-    incide = new TicketsList();
+
+    ticket = new TicketsList();
 
     
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(user,incide);
+    cos.innerHTML=creaHTMTicketsList(ticket);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafeigir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(user,incide)
+    cos.innerHTML=creaHTMLFormulaariAfegir(ticket)
     document.body.append(cos)
 
 
@@ -108,8 +110,8 @@ obtenirDades().then((data) => {
     
         let nouindex = parseInt(llista.darrer_element())+1;
         let tick = new ticket(title,desc,nom,tecnic,assets);
-        llista.novaIncidencia(tick);
-        setTicket(inciden,nouindex)
+        llista.novaticketncia(tick);
+        setTicket(ticketn,nouindex);
 
         
     
@@ -121,9 +123,7 @@ obtenirDades().then((data) => {
         cos.style.display="none"
     
         cos.innerHTML=creaHTMTicketsList(llista,llista_usuari,llista_assets);
-        document.body.append(cos)
-    
-    
+        document.body.append(cos);
     
         alert (title+ " " + nouindex)
     
