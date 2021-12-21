@@ -4,28 +4,24 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
     let optionssed='';
     let optionsge='';
     let optionsges='';
-  
-   
-   
 
     for(let i of ticket.autor){
-        optionsed += "<option value='"+ i.id_usuari + "'>"+i.username+""+"</option>"
+        optionsed += "<option value='"+ i.id_usuari + "'>"+i.username+"</option>"
     }
 
 
-
     for(let i of ticket.tecnic){
-        optionssed += "<option value='"+i.assigned_id +"'> </option>"
+        optionssed += "<option value='"+i.assigned_id +"'>'</option>"
     }
 
 
     for(let i of ticket.model){
         optionsge += "<option value=' "+i.id_asset+"'>" + i.model + "'></option>"
     }
+
     for(let i of ticket.localitzacio ){
-        optionsges += "<option value=' "+i.id_asset+"'>" +i.location+""+"</option>"
+        optionsges += "<option value=' "+i.id_asset+"'>" +i.location+"</option>"
     }
-  
   
     let html=
         `
@@ -42,9 +38,7 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
                     <input type="text" minlength="4" class="form-control" id="Desc" placeholder="id">
                     
                 </div>
-
-            
-        
+      
                 <div class="col-md-4 mb-3">
                     <label for="author" class="form-label">author_id</label>
                     <select id="author" class="form-select" name="author">
@@ -59,7 +53,6 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
                     </select>
                 </div>
             
-
                 <div class="col-md-4 mb-3">
                     <label for="model" class="form-label">model</label>
                     <select id="model" class="form-select" name="model">
@@ -73,13 +66,11 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
                         ${ optionsges }
                     </select>
                 </div>
-
-                
+    
                 <div class="col-md-8 mb-3">
                     <button id="enviar" type="button" class="btn btn-warning">Enviar</button>
                 </div>
 
-    
             </form>
         `
     return html

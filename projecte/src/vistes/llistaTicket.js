@@ -1,4 +1,3 @@
-
 export const ocultaLlistaTicket = () => {
    
 
@@ -28,7 +27,8 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
         let cad_assets= Assets.cercaAssets(v.id_asset)
         let cad_Tec = Tecnic.ceraDesc(v.id)
 
-        html += `
+        html += 
+        `
         <tr >
         <td>${v.id}</td>
         <td><a href="">${v.title}</a></td>
@@ -41,13 +41,9 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
         `
         console.log(v.title)
     });
-    
-
-    
+        
     html +=`</tbody></table>`
     return html;
-
-
 }
 
 

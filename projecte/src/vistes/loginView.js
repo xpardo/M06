@@ -1,7 +1,5 @@
 var login;
 
-
-
 export const formulariLogin = () => {
     
     let html = `
@@ -34,24 +32,17 @@ export const formulariLogin = () => {
          
          `   
         
-         login = document.createElement('div');
-         login.innerHTML=html;
-         login.style.display="block"
-         login.className="container w-50"
-         document.body.append(login)
+	login = document.createElement('div');
+	login.innerHTML=html;
+	login.style.display="block"
+	login.className="container w-50"
+	document.body.append(login)
 
+	document.querySelector("#login").addEventListener("click",() => {
 
-		 document.querySelector("#login").addEventListener("click",() => {
+	console.log("He fet login");
 
-
-			console.log("He fet login");
-
-				
-
-
-		 });
-
-
+	});
 }
 
 export const hideLogin = () => {

@@ -1,8 +1,6 @@
-
 export async function obtenirDades()  {
 
     let data1,data2;
-    
 
     try {
 
@@ -12,29 +10,21 @@ export async function obtenirDades()  {
         data2 = await fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/assets.json')
         data2 = await data2.json();
 
-    
-
-
         return ([data1,data2]);
-
-
 
     }
     catch {
 
-        console.log("Cagado la hemos")
+        console.log("Error")
         return "null"
     }
    
-
 }
 
 
 export async function setTicket(ticket,id) {
 
     try {
-
-
         const res= await  fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/Ticket/'+ id+'.json',
         {
              method: 'PUT',
@@ -43,14 +33,9 @@ export async function setTicket(ticket,id) {
              },
              body: JSON.stringify(ticket)
         })
-     
-
     }
     catch (error) {
 
-
     }
-
-
 }
 

@@ -12,9 +12,7 @@ import { AssetsList } from "./_common/js/classes/assets-list-class.js"
 
 import { obtenirDades } from "./js/firebase.js" 
 
-
 import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
-
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
@@ -23,8 +21,6 @@ import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
 const nombre = 'Xenia';
 
 saludar( nombre );
-
-
 
 import head from "./_common/html/head.html";
 let hed = document.createElement('div');
@@ -36,8 +32,6 @@ let heder = document.createElement('div');
 heder.innerHTML=header;
 document.body.append(heder);
 
-
-
 import footer from "./_common/html/footer.html";
 let div = document.createElement('div');
 div.innerHTML=footer;
@@ -48,7 +42,6 @@ let assets = new AssetsList();
 
 console.log(user)
 
-
 var ticket,tecnic;
 
 obtenirDades().then((data) => {
@@ -56,7 +49,6 @@ obtenirDades().then((data) => {
 
     ticket = new TicketsList();
     tecnic = new StatuseList();
-
     
     let cos= document.createElement('div');
     cos.id="divllistar"
@@ -72,9 +64,7 @@ obtenirDades().then((data) => {
     cos.innerHTML=creaHTMLFormulaariAfegir(ticket,tecnic)
     document.body.append(cos)
 
-
     document.querySelector("#divllistar").addEventListener('click',(event) => {
-
 
         event.preventDefault();
         let index=event.target.parentNode.previousElementSibling.innerHTML
@@ -82,14 +72,9 @@ obtenirDades().then((data) => {
 
         veureTicket(ticket.tickets[index])
         
-
     })
 
-
-
-
       document.querySelector("#enviarTicket").addEventListener('click', (event) => {
-
 
         let nom=[];
     
@@ -119,15 +104,12 @@ obtenirDades().then((data) => {
     
     })
 
-
-
     document.querySelector("#afegir").addEventListener('click',(event) => {
        
         /**Visualitzar taula de tikets*/ 
     
         document.querySelector("#divafegir").style.display="block"
         document.querySelector("#divllistar").style.display="none"
-    
     
     })
     
@@ -137,43 +119,34 @@ obtenirDades().then((data) => {
         document.querySelector("#divllistar").style.display="block"
         /** Visualitzar taula de tickets*/
     
-    
     })
     
     document.querySelector("#esborrar").addEventListener('click',(event) => {
     
-    
         let esborrables = document.querySelectorAll(".esborrar");
 
         for (let i of esborrables)
-        {
-           
+        { 
             i.classList.toggle('invisible')
             console.log(i.innerHTML)
         }
         /**Visualitzar taula de tickets */ 
     })
 
-    document.querySelector("#esborraritems").addEventListener('click',(event) =>
-    {
+    document.querySelector("#esborraritems").addEventListener('click',(event) =>{
 
         let clicked= document.querySelectorAll(".esborrar")
 
         for (let i of clicked) 
-        {
-            
+        {    
             if (i.checked == true){
 
                 llista.esborraTickets()
                 console.log(i.parentNode.parentNode.firstChild.innerHTML)   
 
             }
-
-
         }
-
     })
-    
 }) 
 
     
