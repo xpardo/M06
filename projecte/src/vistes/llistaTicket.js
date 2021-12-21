@@ -22,7 +22,6 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
     <tbody>
     `
 
-    
     TicketsList.tickets.forEach( (v,i,array) => {
         
         let cad_usuari= llistaUsuari.cercaUsuari(v.id_usuari)
@@ -33,8 +32,8 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
         <tr >
         <td>${v.id}</td>
         <td><a href="">${v.title}</a></td>
-        <td>${cad_usuari}</td>
         <td>${v.dec}</td>
+        <td>${cad_usuari}</td>
         <td>${cad_assets}</td>
         <td>${cad_Tec}</td>
         <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>

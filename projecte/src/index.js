@@ -104,7 +104,7 @@ obtenirDades().then((data) => {
 
         let tick = new ticket(title,desc,nom,assets,tecnic);
         ticket.novaticketncia(tick);
-        setTicket(ticket,nouindex);
+        setTicket(tick,nouindex);
 
         document.querySelector("#divllistar").remove();
         let cos= document.createElement('div');
