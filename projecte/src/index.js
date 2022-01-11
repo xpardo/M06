@@ -2,8 +2,6 @@ import { saludar } from './js/componentes';
 
 import './styles.css';
 
-import { formulariLogin,hideLogin } from "./vistes/loginView.js";
-
 import { creaHTMLFormulaariAfegir } from './vistes/afegirTiket.js'
 
 import { UsuarisList } from "./_common/js/classes/usuaris-list-class.js"  
@@ -74,21 +72,20 @@ obtenirDades().then((data) => {
         
     })
 
-      document.querySelector("#enviarTicket").addEventListener('click', (event) => {
+    document.querySelector("#enviarTicket").addEventListener('click', (event) => {
 
-        let nom=[];
     
-        let title=document.querySelector("#titol").value;
+        let title=document.querySelector("#title").value;
         let desc = document.querySelector("#descripcio").value;
-        nom[0]=document.querySelector("#nom").value
+        let nom =document.querySelector("#author").value
         let assets = document.querySelector("#assets").value;
         let tecnic = document.querySelector("#tecnic").value;
-
+        let location = document.querySelector("#location").value;
          
         let nouindex = parseInt(ticket.darrer_element())+1;
 
-        let tick = new ticket(title,desc,nom,assets,tecnic);
-        ticket.novaticketncia(tick);
+        let tick = new ticket(title,desc,nom,assets,tecnic,location);
+        ticket.nouTickets(tick);
         setTicket(tick,nouindex);
 
         document.querySelector("#divllistar").remove();
@@ -97,10 +94,10 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(ticket,desc,llista_usuari,llista_assets,tecnic);
+        cos.innerHTML=creaHTMTicketsList(ticket,llista_usuari,llista_assets,tecnic);
         document.body.append(cos);
     
-        alert (title+ " " + nouindex)
+        alert (title + " " + nouindex)
     
     })
 
@@ -120,6 +117,8 @@ obtenirDades().then((data) => {
         /** Visualitzar taula de tickets*/
     
     })
+
+   
     
     document.querySelector("#esborrar").addEventListener('click',(event) => {
     

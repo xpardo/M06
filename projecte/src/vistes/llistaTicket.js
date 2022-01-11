@@ -3,7 +3,7 @@ export const ocultaLlistaTicket = () => {
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
+export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>{
 
     let html=`
     <table class='table'>
@@ -15,6 +15,7 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
                 <th>Desc</th>
                 <th>Assets</th>
                 <th>Tecnic</th>
+                <th>localitzacio</th>
                 <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>
             </tr>
         </thead>
@@ -25,9 +26,10 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
         
         let cad_usuari= llistaUsuari.cercaUsuari(v.id_usuari)
         let cad_assets= Assets.cercaAssets(v.id_asset)
-        let cad_Tec = Tecnic.ceraDesc(v.id)
+        let cad_loc= Assets.cercaAssets(v.location)
+        let cad_Tec = Tecnic.cercaStatuse(v.id)
 
-        html += 
+        html = 
         `
         <tr >
         <td>${v.id}</td>
@@ -36,6 +38,7 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari,Assets, Tecnic) =>{
         <td>${cad_usuari}</td>
         <td>${cad_assets}</td>
         <td>${cad_Tec}</td>
+        <td>${cad_loc}</td>
         <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
         </tr>
         `
@@ -52,3 +55,8 @@ export const veureTicket = (tickets) => {
     console.log(tickets);
 
 }
+
+//filtrar
+
+///ubicació,autor,estat -> localitzacio,autor,id
+

@@ -38,8 +38,6 @@ export class TicketsList {
     }
     
 
-
-
     esborraTickets(id) {
         this.tikets.foreach( (v,i) => {
 
@@ -65,4 +63,6 @@ export class TicketsList {
 
     }
 }
+
+
 

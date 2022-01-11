@@ -16,16 +16,4 @@ export const saludar = ( nombre = 'sin nombre' ) => {
 }
 
 
-export const isLogged = () => {
-    
-    console.log('Comprovant si està validat');
 
-     let logged = sessionStorage.getItem('logged') 
-    
-     if (logged != undefined){
-        return  logged
-     }else{
-        return -1
-     }      
-        
-}

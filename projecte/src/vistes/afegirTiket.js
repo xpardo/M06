@@ -30,12 +30,11 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
                 <div class="col-md-12 mb-3" >
                     <label for="title"  class="form-label"> title </label>
                     <input type="text" minlength="3" required pattern="[A-Za-z0-9]+" class="form-control" id="title" placeholder="id">
-                     
                 </div>
             
                 <div class="col-md-12 mb-3" >
                     <label for="Desc"  class="form-label">Desc</label>
-                    <input type="text" minlength="4" class="form-control" id="Desc" placeholder="id">
+                    <input type="text" minlength="4" class="form-control" id="descripcio" placeholder="id">
                     
                 </div>
       
@@ -55,7 +54,7 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
             
                 <div class="col-md-4 mb-3">
                     <label for="model" class="form-label">model</label>
-                    <select id="model" class="form-select" name="model">
+                    <select id="assets" class="form-select" name="model">
                         ${ optionsge }
                     </select>
                 </div>
