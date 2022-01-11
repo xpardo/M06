@@ -13,8 +13,7 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>
                 <th>title</th>
                 <th>Autors</th>
                 <th>Desc</th>
-                <th>Model</th>
-                <th>localitzacio</th>
+                <th>Model|localitzacio</th>
                 <th>Estat</th>
                 <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>
             </tr>
@@ -26,10 +25,9 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>
         
         let cad_usuari= llistaUsuari.cercaUsuari(v.id_usuari)
         let cad_assets= Assets.cercaAssets(v.id_asset)
-        let cad_loc= Assets.cercaAssets(v.location)
         let cad_Estat = Tecnic.cercaStatuse(v.id)
 
-        html = 
+        html += 
         `
         <tr >
             <td>${v.id}</td>
@@ -37,7 +35,6 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>
             <td>${v.dec}</td>
             <td>${cad_usuari}</td>
             <td>${cad_assets}</td>
-            <td>${cad_loc}</td>
             <td>${cad_Estat}</td>
             <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
         </tr>

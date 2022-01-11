@@ -18,10 +18,11 @@ export class StatuseList {
         for (let i of this.statuses)
         {
             if (i.id == id)
-                return i.created
+                return i.name
         }
         return "Statuse Desconegut"
     }
+    
     cercaStatuses(id_array) {
  
         let retorn='';

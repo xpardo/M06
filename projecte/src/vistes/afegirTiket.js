@@ -11,7 +11,7 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
 
 
     for(let i of ticket.estat){
-        optionssed += "<option value='"+i.status_id +"'>"+i.created+"'</option>"
+        optionssed += "<option value='"+i.status_id +"'>"+i.name+"'</option>"
     }
 
 

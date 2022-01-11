@@ -18,11 +18,11 @@ export class UsuarisList {
         return data1;
     }
 
-    cercaUsuari(id_usuari) {
+    cercaUsuari(id) {
 
-        for (let i of this.user)
+        for (let i of this.username)
         {
-            if (i.id == id_usuari)
+            if (i.id_usuari == id)
                 return i.username
         }
         return "usuari Desconegud"

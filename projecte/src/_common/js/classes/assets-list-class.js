@@ -19,12 +19,13 @@ export class AssetsList {
         return data1;
     }
 
-    cercaAssets(id_asset) {
+    cercaAssets(id) {
 
         for (let i of this.assets)
         {
-            if (i.id == id_asset)
-                return i.model
+            if (i.id_asset == id)
+                return i.model + "| "+i.location;
+
         }
         return "assets Desconeguda"
     }
