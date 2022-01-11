@@ -10,8 +10,8 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
     }
 
 
-    for(let i of ticket.tecnic){
-        optionssed += "<option value='"+i.assigned_id +"'>'</option>"
+    for(let i of ticket.estat){
+        optionssed += "<option value='"+i.status_id +"'>"+i.created+"'</option>"
     }
 
 
@@ -34,7 +34,7 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
             
                 <div class="col-md-12 mb-3" >
                     <label for="Desc"  class="form-label">Desc</label>
-                    <input type="text" minlength="4" class="form-control" id="descripcio" placeholder="id">
+                    <input type="text" minlength="4" class="form-control" id="desc" placeholder="id">
                     
                 </div>
       
@@ -46,15 +46,15 @@ export const creaHTMLFormulaariAfegir = (ticket) =>{
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <label for="tecnic" class="form-label">Tecnic</label>
-                    <select id="tecnic" class="form-select" name="tecnic">
+                    <label for="estat" class="form-label">estat</label>
+                    <select id="estat" class="form-select" name="estat">
                         ${ optionssed }    
                     </select>
                 </div>
             
                 <div class="col-md-4 mb-3">
                     <label for="model" class="form-label">model</label>
-                    <select id="assets" class="form-select" name="model">
+                    <select id="model" class="form-select" name="model">
                         ${ optionsge }
                     </select>
                 </div>

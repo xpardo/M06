@@ -18,7 +18,7 @@ export class StatuseList {
         for (let i of this.statuses)
         {
             if (i.id == id)
-                return i.name
+                return i.created
         }
         return "Statuse Desconegut"
     }

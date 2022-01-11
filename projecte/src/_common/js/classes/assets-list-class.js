@@ -19,4 +19,14 @@ export class AssetsList {
         return data1;
     }
 
+    cercaAssets(id_asset) {
+
+        for (let i of this.assets)
+        {
+            if (i.id == id_asset)
+                return i.model
+        }
+        return "assets Desconeguda"
+    }
+
 }

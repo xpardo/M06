@@ -40,26 +40,26 @@ let assets = new AssetsList();
 
 console.log(user)
 
-var ticket,tecnic;
+var ticket,Estat;
 
 obtenirDades().then((data) => {
     console.log(data);
 
     ticket = new TicketsList();
-    tecnic = new StatuseList();
+    Estat = new StatuseList();
     
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(ticket,tecnic);
+    cos.innerHTML=creaHTMTicketsList(ticket,Estat);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafeigir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(ticket,tecnic)
+    cos.innerHTML=creaHTMLFormulaariAfegir(ticket,Estat)
     document.body.append(cos)
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
@@ -76,15 +76,15 @@ obtenirDades().then((data) => {
 
     
         let title=document.querySelector("#title").value;
-        let desc = document.querySelector("#descripcio").value;
+        let desc = document.querySelector("#desc").value;
         let nom =document.querySelector("#author").value
-        let assets = document.querySelector("#assets").value;
-        let tecnic = document.querySelector("#tecnic").value;
+        let assets = document.querySelector("#model").value;
+        let Estat = document.querySelector("#estat").value;
         let location = document.querySelector("#location").value;
          
         let nouindex = parseInt(ticket.darrer_element())+1;
 
-        let tick = new ticket(title,desc,nom,assets,tecnic,location);
+        let tick = new ticket(title,desc,nom,assets,Estat,location);
         ticket.nouTickets(tick);
         setTicket(tick,nouindex);
 
@@ -94,7 +94,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(ticket,llista_usuari,llista_assets,tecnic);
+        cos.innerHTML=creaHTMTicketsList(ticket,llista_usuari,llista_assets,Estat);
         document.body.append(cos);
     
         alert (title + " " + nouindex)

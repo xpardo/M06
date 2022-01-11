@@ -13,7 +13,7 @@ export const saludar = ( nombre = 'sin nombre' ) => {
     // const img = document.createElement('img');
     // img.src = webpacklogo;
     // document.body.append( img );
+
+ 
 }
-
-
 
