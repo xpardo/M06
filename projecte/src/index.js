@@ -100,10 +100,14 @@ obtenirDades().then((data) => {
 
 
     document.querySelector("filtrar").addEventListener('click',(event) =>{
-        const estat = document.querySelector("#divfiltrar").style.display = "block";
-        const estatl = document.querySelector("#divfiltrar").style.display= "none";
+        const estat = document.querySelector("#divfiltrar").style.display;
+        const estatl = document.querySelector("#divllistar").style.display;
 
-        
+        if (estat == "none" && estatl == "block"){
+            document.querySelector("#divfiltrar").style.display = "block";
+        }else{
+            document.querySelector("#divfiltrar").style.display = "none";
+        }
     });
 
 
