@@ -37,6 +37,17 @@ export class TicketsList {
         return "Tiket Desconeguda"
     }
 
+
+    Filtrar(usuaris,assets,status){
+        const d = this.tikets.filtrer((element)=>{
+            usuaris.map(ele => element.id_usuari.includes(ele)).includes(true)
+            assets.map(ele => element.id_asset.includes(ele)).includes(true)
+            status.map(ele=>element.id.includes(ele)).includes(true)
+        });
+
+        return d
+    }
+
   
     esborraTickets(id) {
         this.tikets.foreach( (v,i) => {

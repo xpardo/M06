@@ -3,7 +3,7 @@ export const ocultaLlistaTicket = () => {
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>{
+export const creaHTMTicketsList = (TicketsList, llistaautors, Assets, Tecnic) =>{
 
     let html=`
     <table class='table'>
@@ -23,7 +23,7 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>
 
     TicketsList.tickets.forEach( (v,i,array) => {
         
-        let cad_usuari= llistaUsuari.cercaUsuari(v.id_usuari)
+        let cad_usuari= llistaautors.cercaAutors(v.id_autors)
         let cad_assets= Assets.cercaAssets(v.id_asset)
         let cad_Estat = Tecnic.cercaStatuse(v.id)
 

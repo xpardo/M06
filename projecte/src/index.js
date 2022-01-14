@@ -14,6 +14,9 @@ import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
+/* import { AutorsList } from "/_common/js/classes/autors-list-class.js"; */
+
+
 import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
 
 import { crearFormulariFiltrar } from './vistes/filtra.js';
@@ -46,23 +49,24 @@ var ticket,Estat;
 
 obtenirDades().then((data) => {
     console.log(data);
+    llista_autors = new AutorsList(data[1]);
 
     const myArrClean = data[0].filter(Boolean)
-    ticket = new TicketsList();
+    ticket = new TicketsList(myArrClean);
     Estat = new StatuseList();
     
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(ticket,Estat);
+    cos.innerHTML=creaHTMTicketsList(llista.ticket,ticket,llista_autors,Estat);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafeigir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(ticket,Estat)
+    cos.innerHTML=creaHTMLFormulaariAfegir(ticket,llista_autors,Estat)
     document.body.append(cos)
 
     /**
@@ -81,7 +85,7 @@ obtenirDades().then((data) => {
 
     document.querySelector('#ferfiltrar').addEventListener('click',(event)=>{
         const ele =document.querySelector('#filtrar').value
-        const v = llista_usuari.filtraUsuari(ele)
+        const v = llista_autors.filtraAutorsPerText(ele)
         const b = llista_assets.filtraAssets(ele)
         const w = llista_statuse.filtraStatuses(ele)
         
@@ -93,7 +97,7 @@ obtenirDades().then((data) => {
         const l = llista.filtrar(dv)
         console.log(l)
         let cos = document.querySelector("#divllista")
-        cos.innerHTML=creaHTMTicketsList(l,llista_usuari,llista_assets,llista_statuse)
+        cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_assets,llista_statuse)
     })
 
 
@@ -111,12 +115,42 @@ obtenirDades().then((data) => {
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
 
-        event.preventDefault();
+        /* event.preventDefault();
         let index=event.target.parentNode.previousElementSibling.innerHTML
         console.log(index)
 
-        veureTicket(ticket.tickets[index])
-        
+        veureTicket(ticket.tickets[index]) */
+        event.preventDefault();
+        let index=-1;
+
+        console.log(event.target.className)
+        if (event.target.className == "delere")
+        {
+            index=event.target.parentNode.parentNode.parentNode.id    
+            console.log("Esborrar",event.target.src,index)
+            llista.esborraTickets(parseInt(index));
+           
+            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(llista.ticket,ticket,llista_autors,Estat);
+            delTicket(index)
+           
+        }
+        else if (event.target.className == "vide")
+        {
+            index=event.target.parentNode.parentNode.parentNode.id    
+            console.log("Veure",event.target.src,index)
+        }
+        else if (event.target.className == "mutare")
+        {
+            index=event.target.parentNode.parentNode.parentNode.id    
+            console.log("Modificar",event.target.src,index)
+        }
+
+
+
+
+
+
+
     })
 
     document.querySelector("#enviarTicket").addEventListener('click', (event) => {
@@ -135,13 +169,13 @@ obtenirDades().then((data) => {
         ticket.nouTickets(tick);
         setTicket(tick,nouindex);
 
-        document.querySelector("#divllistar").remove();
+        document.querySelector("#divllistar");
         let cos= document.createElement('div');
         cos.id="divllistar"
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(ticket,llista_usuari,llista_assets,Estat);
+        cos.innerHTML=creaHTMTicketsList(llista.ticket,ticket,llista_autors,llista_assets,Estat);
         document.body.append(cos);
     
         alert (title + " " + nouindex)

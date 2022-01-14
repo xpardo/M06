@@ -36,6 +36,17 @@ export class AutorsList {
         return retorn.slice(0,-1); // Elimina el darrer '-'
     }
 
+    filtraAutorsPerText(text)
+    {
+        let torna= this.autors.filter((element) => {
+        
+            // console.log(element.nom)
+            if (element.nom.match(new RegExp(text,"i")) 
+                || element.cognoms.match(new RegExp(text,"i"))) return true;
+        })
+        return torna;
+    }
+
     desarLocalStorage() {
 
         localStorage.setItem('autors',JSON.stringify(this.autors));
@@ -51,4 +62,3 @@ export class AutorsList {
 
 
 }
-
