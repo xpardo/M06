@@ -94,8 +94,6 @@ obtenirDades().then((data) => {
         console.log(l)
         let cos = document.querySelector("#divllista")
         cos.innerHTML=creaHTMTicketsList(l,llista_usuari,llista_assets,llista_statuse)
-        
-
     })
 
 
