@@ -28,6 +28,28 @@ export class UsuarisList {
         return "usuari Desconegud"
     }
 
+    filtraUsuari(){
+        let torna= this.usuaris.filter((element)=>{
+            console.log(element.username)
+            if(element.username.match(new RegExp(text,"i")))
+            return true;
+        });
+        return torna;
+    }
+
+    desarLocalStorage() {
+
+        localStorage.setItem('usuaris',JSON.stringify(this.usuaris));
+    }
+    carregarLocalStorage() {
+
+
+        this.usuaris = ( localStorage.getItem('usuaris') )
+                        ? JSON.parse( localStorage.getItem('usuaris') )
+                        : [];
+
+    }
+
     
 
 }

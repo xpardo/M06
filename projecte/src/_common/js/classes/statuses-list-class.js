@@ -6,7 +6,7 @@ export class StatuseList {
         console.log(this.statuses);
     }
 
-    nouStatuse(Statuse) {
+    nouStatuse(statuse) {
 
         this.statuses.push(statuse);
         this.desarLocalStorage();
@@ -22,7 +22,7 @@ export class StatuseList {
         }
         return "Statuse Desconegut"
     }
-    
+
     cercaStatuses(id_array) {
  
         let retorn='';
@@ -32,6 +32,17 @@ export class StatuseList {
             retorn += this.cercaStatuse(i)+"-"
         }
         return retorn.slice(0,-1); 
+    }
+
+
+    filtraStatuses(){
+        let torna =this.name.filter((element)=>{
+            console.log(element.name)
+            if(element.name.match(new RegExp(text,"i"))) 
+            return true;
+
+        });
+        return torna;
     }
 
     desarLocalStorage() {

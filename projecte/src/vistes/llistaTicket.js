@@ -13,7 +13,7 @@ export const creaHTMTicketsList = (TicketsList, llistaUsuari, Assets, Tecnic) =>
                 <th>title</th>
                 <th>Autors</th>
                 <th>Desc</th>
-                <th>Model|localitzacio</th>
+                <th>localitzacio</th>
                 <th>Estat</th>
                 <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>
             </tr>
@@ -53,7 +53,6 @@ export const veureTicket = (tickets) => {
 
 }
 
-//filtrar
 
-///ubicació,autor,estat -> location,autor,estat
+
 

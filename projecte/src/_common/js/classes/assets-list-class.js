@@ -24,10 +24,33 @@ export class AssetsList {
         for (let i of this.assets)
         {
             if (i.id_asset == id)
-                return i.model + "| "+i.location;
+                return i.location;
 
         }
         return "assets Desconeguda"
+    }
+
+    filtraAssets()
+    {
+        let torna = this.assets.filter((element)=>{
+            console.log(element.location.match(new RegExp(text,"i")))
+            return true;
+        });
+        return torna;
+    }
+
+
+    desarLocalStorage() {
+
+        localStorage.setItem('assets',JSON.stringify(this.assets));
+    }
+    carregarLocalStorage() {
+
+
+        this.assets = ( localStorage.getItem('assets') )
+                        ? JSON.parse( localStorage.getItem('assets') )
+                        : [];
+
     }
 
 }

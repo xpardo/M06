@@ -36,8 +36,8 @@ export class TicketsList {
         }
         return "Tiket Desconeguda"
     }
-    
 
+  
     esborraTickets(id) {
         this.tikets.foreach( (v,i) => {
 

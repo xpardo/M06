@@ -16,6 +16,8 @@ import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
 import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
 
+import { crearFormulariFiltrar } from './vistes/filtra.js';
+
 const nombre = 'Xenia';
 
 saludar( nombre );
@@ -45,6 +47,7 @@ var ticket,Estat;
 obtenirDades().then((data) => {
     console.log(data);
 
+    const myArrClean = data[0].filter(Boolean)
     ticket = new TicketsList();
     Estat = new StatuseList();
     
@@ -61,6 +64,38 @@ obtenirDades().then((data) => {
     cos.className="container w-50"
     cos.innerHTML=creaHTMLFormulaariAfegir(ticket,Estat)
     document.body.append(cos)
+
+    /**
+     * component de Filtratge
+     */
+    let divfiltrar = document.createElement("div")
+    divfiltrar.id="divfiltrar"
+    divfiltrar.style.display="none"
+    divfiltrar.className="container w-75"
+    divfiltrar.innerHTML=crearFormulariFiltrar()
+    document.body.append(divfiltrar)
+
+    /**
+    * Filtratge
+    */
+
+    document.querySelector('#divfiltrar').addEventListener('click',(event)=>{
+        const ele =document.querySelector('#filtrar').value
+        const v = llista_usuari.filtraUsuari(ele)
+        const b = llista_assets.filtraAssets(ele)
+        const w = llista_statuse.filtraStatuses(ele)
+        
+        console.log(v,b,w)
+
+        const dv = v.map(ele=>ele.id_usuari,ele=>ele.id_asset,ele=>ele.id)
+        console.log(dv)
+
+        
+
+    })
+
+
+
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
 
