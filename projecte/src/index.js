@@ -79,7 +79,7 @@ obtenirDades().then((data) => {
     * Filtratge
     */
 
-    document.querySelector('#divfiltrar').addEventListener('click',(event)=>{
+    document.querySelector('#ferfiltrar').addEventListener('click',(event)=>{
         const ele =document.querySelector('#filtrar').value
         const v = llista_usuari.filtraUsuari(ele)
         const b = llista_assets.filtraAssets(ele)
@@ -90,11 +90,21 @@ obtenirDades().then((data) => {
         const dv = v.map(ele=>ele.id_usuari,ele=>ele.id_asset,ele=>ele.id)
         console.log(dv)
 
+        const l = llista.filtrar(dv)
+        console.log(l)
+        let cos = document.querySelector("#divllista")
+        cos.innerHTML=creaHTMTicketsList(l,llista_usuari,llista_assets,llista_statuse)
         
 
     })
 
 
+    document.querySelector("filtrar").addEventListener('click',(event) =>{
+        const estat = document.querySelector("#divfiltrar").style.display = "block";
+        const estatl = document.querySelector("#divfiltrar").style.display= "none";
+
+        
+    });
 
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
