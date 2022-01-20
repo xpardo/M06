@@ -1,21 +1,28 @@
 export async function obtenirDades()  {
 
-    let data1,data2;
+    let data1,data2,data3,data4;
 
     try {
 
-        data1 = await fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/usuaris.json')
+        data1 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/ticket.json')
         data1 = await data1.json();
         
-        data2 = await fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/assets.json')
+        data2 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/usuaris.json')
         data2 = await data2.json();
 
-        return ([data1,data2]);
+        data3 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/assets.json')
+        data3 = await data3.json();
+
+        data4 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/status.json')
+        data4 = await data4.json();
+
+
+        return ([data1,data2,data3,data4]);
 
     }
     catch {
 
-        console.log("Error")
+        cconsole.log("...Error")
         return "null"
     }
    
@@ -25,7 +32,7 @@ export async function obtenirDades()  {
 export async function setTicket(ticket,id) {
 
     try {
-        const res= await  fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/Ticket/'+ id+'.json',
+        const res= await  fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/ticket/'+ id+'.json',
         {
              method: 'PUT',
              headers: {
@@ -39,3 +46,22 @@ export async function setTicket(ticket,id) {
     }
 }
 
+
+ export async function delTicket(id)
+{
+    try {
+
+        const res= await  fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/ticket/'+ id+'.json',
+    {
+        method: 'DELETE',
+                      
+    })
+
+    }
+    catch (error) {
+
+    }
+}
+ 
+
+///https://ticket-ec38b-default-rtdb.firebaseio.com/autors.json

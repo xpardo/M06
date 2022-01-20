@@ -3,7 +3,7 @@ export const ocultaLlistaTicket = () => {
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaautors, Assets, Tecnic) =>{
+export const creaHTMTicketsList = (TicketsList, llistaautors, Estat) =>{
 
     let html=`
     <table class='table'>
@@ -23,9 +23,9 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, Assets, Tecnic) =>
 
     TicketsList.tickets.forEach( (v,i,array) => {
         
-        let cad_usuari= llistaautors.cercaAutors(v.id_autors)
-        let cad_assets= Assets.cercaAssets(v.id_asset)
-        let cad_Estat = Tecnic.cercaStatuse(v.id)
+        let cad_usuari= llistaautors.cercaAutor(v.id_author)
+  
+        let cad_Estat = Estat.cercaStatuses(v.ticket_id)
 
         html += 
         `
@@ -34,7 +34,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, Assets, Tecnic) =>
             <td><a href="">${v.title}</a></td>
             <td>${v.dec}</td>
             <td>${cad_usuari}</td>
-            <td>${cad_assets}</td>
+            <td>${v.assets_id}</td>
             <td>${cad_Estat}</td>
             <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
         </tr>

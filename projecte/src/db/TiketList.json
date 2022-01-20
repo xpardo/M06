@@ -1,4 +1,6 @@
 {
+  "autors": [{"id_autor":0,"cognoms":"Herbert","nom":"Frank"},{"id_autor":1,"cognoms":"Asimov","nom":"Isaac"},{"id_autor":2,"cognoms":"de Pedrolo","nom":"Manuel"},{"id_autor":3,"cognoms":"Gaiman","nom":"Neil"},{"id_autor":4,"cognoms":"Pratchett","nom":"Terry"}],
+
     "usuaris":[ {
     "id_usuari" : 0,
     "username" : "armand",
@@ -75,12 +77,19 @@
 
   "ticket": [{
     "id":0,
-    "id_autors":[0],
-    "titol":"eincidencia",
-    "deesc":"esto es una incidencia",
-    "assigned_id":[0],
-    "assets_id":[0]
-    }]
+    "id_autors":0,
+    "titol":"incidencia",
+    "desc":"esto es una incidencia",
+    "assigned_id":0,
+    "assets_id":0
+  }],
+
+
+  "status": [{
+    "id":0,
+    "name":"mal",
+    "parent_id":0
+  }]
 
 
 }

@@ -14,10 +14,12 @@ import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
-/* import { AutorsList } from "/_common/js/classes/autors-list-class.js"; */
+import { ticket } from "./_common/js/classes/tickets-class.js"
+
+ import { AutorsList } from "./_common/js/classes/autors-list-class.js"; 
 
 
-import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
+import { TicketStatuseList } from "./_common/js/classes/ticket_statuses_list-class.js"
 
 import { crearFormulariFiltrar } from './vistes/filtra.js';
 
@@ -45,28 +47,29 @@ let assets = new AssetsList();
 
 console.log(user)
 
-var ticket,Estat;
+export let Ticket,Estat,tick,llista_autors;
+
 
 obtenirDades().then((data) => {
     console.log(data);
-    llista_autors = new AutorsList(data[1]);
 
+    llista_autors = new AutorsList(data[1]);
     const myArrClean = data[0].filter(Boolean)
-    ticket = new TicketsList(myArrClean);
-    Estat = new StatuseList();
+    Ticket = new TicketsList (myArrClean);
+    Estat = new TicketStatuseList(data[4]);
     
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(llista.ticket,ticket,llista_autors,Estat);
+    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,Estat);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafeigir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(ticket,llista_autors,Estat)
+    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,Estat)
     document.body.append(cos)
 
     /**
@@ -130,7 +133,7 @@ obtenirDades().then((data) => {
             console.log("Esborrar",event.target.src,index)
             llista.esborraTickets(parseInt(index));
            
-            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(llista.ticket,ticket,llista_autors,Estat);
+            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(Ticket,llista_autors,Estat);
             delTicket(index)
            
         }
@@ -155,7 +158,8 @@ obtenirDades().then((data) => {
 
     document.querySelector("#enviarTicket").addEventListener('click', (event) => {
 
-    
+        
+
         let title=document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
         let nom =document.querySelector("#author").value
@@ -163,11 +167,12 @@ obtenirDades().then((data) => {
         let Estat = document.querySelector("#estat").value;
         let location = document.querySelector("#location").value;
          
-        let nouindex = parseInt(ticket.darrer_element())+1;
+        console.warn("Darrer element",llista.darrer_element()) 
+        let nouindex = parseInt(llista.darrer_element())+1;
 
-        let tick = new ticket(title,desc,nom,assets,Estat,location);
-        ticket.nouTickets(tick);
-        setTicket(tick,nouindex);
+        let ticks = new ticket(title,desc,nom,assets,Estat,location);
+        llista.nouTickets(tick);
+        setTicket(ticks,nouindex);
 
         document.querySelector("#divllistar");
         let cos= document.createElement('div');
@@ -175,7 +180,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(llista.ticket,ticket,llista_autors,llista_assets,Estat);
+        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_assets,Estat);
         document.body.append(cos);
     
         alert (title + " " + nouindex)

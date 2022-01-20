@@ -1,4 +1,6 @@
-export class StatuseList {
+import Ticket_statuses  from './ticket_statuses-class'; 
+
+export class TicketStatuseList {
 
     constructor(statuses) {
 
@@ -11,29 +13,19 @@ export class StatuseList {
         this.statuses.push(statuse);
         this.desarLocalStorage();
 
-
     }
+   
     cercaStatuse(id) {
 
         for (let i of this.statuses)
         {
-            if (i.id == id)
-                return i.name
+            if (i.ticket_id == id)
+                return i.ticket_id;
         }
         return "Statuse Desconegut"
     }
 
-    cercaStatuses(id_array) {
- 
-        let retorn='';
-
-        for (let i of id_array)
-        {
-            retorn += this.cercaStatuse(i)+"-"
-        }
-        return retorn.slice(0,-1); 
-    }
-
+    
 
     filtraStatuses(){
         let torna =this.name.filter((element)=>{

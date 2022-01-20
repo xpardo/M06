@@ -3,7 +3,7 @@ export class AssetsList {
 
     assets;
 
-    constructor() {
+    constructor(assets) {
 
         this.assets = [];
         this.obtenirDades().then ((data) =>  { this.assets=data; console.log(data) } );
@@ -12,13 +12,21 @@ export class AssetsList {
     async obtenirDades()
     {
 
-        let data1 = await fetch('https://biblioteca-9f853-default-rtdb.europe-west1.firebasedatabase.app/assets.json')
+        let data1 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/assets.json')
         data1 = await data1.json();
         
         
         return data1;
     }
 
+
+    nouAssets(assets) {
+
+        this.assets.push(assets);
+        this.desarLocalStorage();
+
+
+    }
     cercaAssets(id) {
 
         for (let i of this.assets)
@@ -30,6 +38,7 @@ export class AssetsList {
         return "assets Desconeguda"
     }
 
+
     filtraAssets()
     {
         let torna = this.assets.filter((element)=>{
@@ -40,6 +49,7 @@ export class AssetsList {
     }
 
 
+
     desarLocalStorage() {
 
         localStorage.setItem('assets',JSON.stringify(this.assets));
@@ -47,10 +57,11 @@ export class AssetsList {
     carregarLocalStorage() {
 
 
-        this.assets = ( localStorage.getItem('assets') )
+        this.autors = ( localStorage.getItem('assets') )
                         ? JSON.parse( localStorage.getItem('assets') )
                         : [];
 
     }
+
 
 }

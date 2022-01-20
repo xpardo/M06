@@ -1,17 +1,19 @@
-export const creaHTMLFormulaariAfegir = (ticket,llistaautors) =>{
+export const creaHTMLFormulaariAfegir = (ticket,llistaautors,tecnic) =>{
     
     let optionsed='';
     let optionssed='';
     let optionsge='';
     let optionsges='';
+    let optionsgess='';
+
 
     for (let i of llistaautors.autors)  {
    
         optionsed += "<option value=" + i.id_autor + ">"+i.nom+" "+i.cognoms +"</option>"
     }
 
-    for(let i of ticket.estat){
-        optionssed += "<option value='"+i.status_id +"'>"+i.name+"'</option>"
+    for(let i of tecnic.estat){
+        optionssed += "<option value='"+i.status_id +"'>"+i.id+"'</option>"
     }
 
 
@@ -22,6 +24,8 @@ export const creaHTMLFormulaariAfegir = (ticket,llistaautors) =>{
     for(let i of ticket.localitzacio ){
         optionsges += "<option value=' "+i.id_asset+"'>" +i.location+"</option>"
     }
+
+   
   
     let html=
         `

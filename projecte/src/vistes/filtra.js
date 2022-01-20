@@ -26,4 +26,4 @@ export const crearFormulariFiltrar = () => {
 
 //filtrar
 
-///ubicació,autor,estat -> location,autor,estat
+///ubicació,autor,estat -> location,author,estat
