@@ -96,7 +96,7 @@
 
   }],
 
-  "location": [{
+  "locations": [{
     "id":0,
     "name":"Aula 110",
     "parent_id":0

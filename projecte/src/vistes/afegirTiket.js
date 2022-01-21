@@ -1,27 +1,21 @@
-export const creaHTMLFormulaariAfegir = (ticket,llistaautors,estat,localitat) =>{
+export const creaHTMLFormulaariAfegir = (llistaautors,status,locations) => {
     
     let optionsed='';
     let optionssed='';
-    let optionsge='';
     let optionsges='';
-    let optionsgess='';
+   
 
 
-    for (let i of 'llistaautors.autor')  {
+    for (let i of llistaautors.autors)  {
    
         optionsed += "<option value=" + i.id_autor + ">"+i.nom+" "+i.cognoms +"</option>"
     }
 
-    for(let i of 'estat.estat'){
-        optionssed += "<option value='"+i.status_id +"'>"+i.id+"'</option>"
+    for(let i of status.status){
+        optionssed += "<option value='"+i.ticket_id +"'>"+i.id+"'</option>"
     }
-
-
-    for(let i of 'ticket.model'){
-        optionsge += "<option value=' "+i.id_asset+"'>" + i.model + "'></option>"
-    }
-
-    for(let i of 'localitat.localitzacio' ){
+  
+    for(let i of locations.locations){
         optionsges += "<option value=' "+i.id+"'>" +i.name+"</option>"
     }
 
@@ -50,22 +44,22 @@ export const creaHTMLFormulaariAfegir = (ticket,llistaautors,estat,localitat) =>
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <label for="estat" class="form-label">estat</label>
-                    <select id="estat" class="form-select" name="estat">
+                    <label for="status" class="form-label">Estat</label>
+                    <select id="status" class="form-select" name="status">
                         ${ optionssed }    
                     </select>
                 </div>
             
                 <div class="col-md-4 mb-3">
                     <label for="model" class="form-label">model</label>
-                    <select id="model" class="form-select" name="model">
-                        ${ optionsge }
+                    <input id="model" type="text" class="form-control" name="model">
+
                     </select>
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="location" class="form-label">localitzacio</label>
-                    <select id="location" class="form-select" name="location">
+                    <label for="locations" class="form-label">localitzacio</label>
+                    <select id="locations" class="form-select" name="locations">
                         ${ optionsges }
                     </select>
                 </div>
