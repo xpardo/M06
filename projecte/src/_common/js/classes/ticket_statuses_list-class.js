@@ -5,19 +5,19 @@ export class TicketStatuseList {
     constructor(statuses) {
 
         this.statuses = statuses;
-        console.log(this.statuses);
+
     }
 
     nouStatuse(statuse) {
 
-        this.statuses.push(statuse);
+        this.statuses.push(status);
         this.desarLocalStorage();
 
     }
    
     cercaStatuse(id) {
 
-        for (let i of this.statuses)
+        for (let i of 'this.statuses')
         {
             if (i.ticket_id == id)
                 return i.ticket_id;
@@ -28,9 +28,8 @@ export class TicketStatuseList {
     
 
     filtraStatuses(){
-        let torna =this.name.filter((element)=>{
-            console.log(element.name)
-            if(element.name.match(new RegExp(text,"i"))) 
+        let torna =this.status.filter((element)=>{
+            if(element.ticket_id.match(new RegExp(text,"i"))) 
             return true;
 
         });

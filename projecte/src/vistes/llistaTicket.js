@@ -25,7 +25,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, Estat) =>{
         
         let cad_usuari= llistaautors.cercaAutor(v.id_author)
   
-        let cad_Estat = Estat.cercaStatuses(v.ticket_id)
+        let cad_Estat = Estat.cercaStatuse(v.ticket_id)
 
         html += 
         `

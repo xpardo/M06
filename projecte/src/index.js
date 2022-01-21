@@ -86,7 +86,7 @@ obtenirDades().then((data) => {
     * Filtratge
     */
 
-    document.querySelector('#ferfiltrar').addEventListener('click',(event)=>{
+    document.querySelector('#ferfiltre').addEventListener('click',(event)=>{
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele)
         const b = llista_assets.filtraAssets(ele)

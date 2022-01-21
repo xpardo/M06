@@ -87,8 +87,13 @@
 
   "status": [{
     "id":0,
-    "name":"mal",
-    "parent_id":0
+    "parent_id":0,
+    "ticket_id":0,
+    "status_id":0,
+    "author_id":0,
+    "notes":"uno",
+    "created":"uno"
+
   }]
 
 
