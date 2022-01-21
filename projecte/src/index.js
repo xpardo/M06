@@ -14,9 +14,16 @@ import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
+
 import { ticket } from "./_common/js/classes/tickets-class.js"
 
- import { AutorsList } from "./_common/js/classes/autors-list-class.js"; 
+/* import { LocationsList } from "./_common/js/classes/locations-list-class.js" */
+
+
+
+import { AutorsList } from "./_common/js/classes/autors-list-class.js";
+
+
 
 
 import { TicketStatuseList } from "./_common/js/classes/ticket_statuses_list-class.js"
@@ -47,7 +54,7 @@ let assets = new AssetsList();
 
 console.log(user)
 
-export let Ticket,Estat,tick,llista_autors;
+export let Ticket,Estat,tick,llista_autors,localitat;
 
 
 obtenirDades().then((data) => {
@@ -57,19 +64,20 @@ obtenirDades().then((data) => {
     const myArrClean = data[0].filter(Boolean)
     Ticket = new TicketsList (myArrClean);
     Estat = new TicketStatuseList(data[4]);
+    localitat = new LocationsList(data[5]);
     
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,Estat);
+    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,Estat,localitat);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafeigir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,Estat)
+    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,Estat,localitat)
     document.body.append(cos)
 
     /**
@@ -89,7 +97,7 @@ obtenirDades().then((data) => {
     document.querySelector('#ferfiltre').addEventListener('click',(event)=>{
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele)
-        const b = llista_assets.filtraAssets(ele)
+        const b = llista_location.filtraLocations(ele)
         const w = llista_statuse.filtraStatuses(ele)
         
         console.log(v,b,w)
@@ -100,7 +108,7 @@ obtenirDades().then((data) => {
         const l = llista.filtrar(dv)
         console.log(l)
         let cos = document.querySelector("#divllista")
-        cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_assets,llista_statuse)
+        cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_location,llista_statuse)
     })
 
 
@@ -135,7 +143,7 @@ obtenirDades().then((data) => {
             console.log("Esborrar",event.target.src,index)
             llista.esborraTickets(parseInt(index));
            
-            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(Ticket,llista_autors,Estat);
+            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(Ticket,llista_autors,Estat,localitat);
             delTicket(index)
            
         }
@@ -179,7 +187,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_assets,Estat);
+        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_assets,Estat,localitat);
         document.body.append(cos);
     
         alert (title + " " + nouindex)
