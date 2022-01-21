@@ -155,11 +155,11 @@ obtenirDades().then((data) => {
 
     document.querySelector("#enviarTicket").addEventListener('click', (event) => {
 
-        let autorllibre=[];
+       
 
         let title=document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
-        autorllibre[0]=document.querySelector("#autorllibre").value
+        let autor =document.querySelector("#author").value
         let assets = document.querySelector("#model").value;
         let statuses = document.querySelector("#statuses").value;
         let locations = document.querySelector("#locations").value;
@@ -167,7 +167,7 @@ obtenirDades().then((data) => {
         console.warn("Darrer element",llista.darrer_element()) 
         let nouindex = parseInt(llista.darrer_element())+1;
 
-        let ticks = new ticket(title,desc,nom,assets,statuses,location);
+        let ticks = new ticket(title,desc,autor,nom,assets,statuses,location);
         llista.nouTickets(tick);
         setTicket(ticks,nouindex);
 

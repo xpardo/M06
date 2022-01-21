@@ -10,7 +10,7 @@ export class TicketStatuseList {
 
     nouStatuse(statuse) {
 
-        this.statuses.push(status);
+        this.statuses.push(statuse);
         this.desarLocalStorage();
 
     }
