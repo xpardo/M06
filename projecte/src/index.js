@@ -104,6 +104,7 @@ obtenirDades().then((data) => {
     })
 
 
+
     document.querySelector("#filtrar").addEventListener('click',(event) => {
         const estat = document.querySelector("#divfiltrar").style.display;
         const estatl = document.querySelector("#divllistar").style.display;
@@ -113,7 +114,8 @@ obtenirDades().then((data) => {
         }else{
             document.querySelector("#divfiltrar").style.display = "none";
         }
-    });
+    })
+
 
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
@@ -148,21 +150,18 @@ obtenirDades().then((data) => {
             console.log("Modificar",event.target.src,index)
         }
 
-
-
-
-
-
-
     })
 
-    document.querySelector('#enviarTicket').addEventListener('click',(event) => {
 
-        
+
+
+    document.querySelector("#enviarTicket").addEventListener('click', (event) => {
+
+        let autorllibre=[];
 
         let title=document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
-        let nom =document.querySelector("#author").value
+        autorllibre[0]=document.querySelector("#autorllibre").value
         let assets = document.querySelector("#model").value;
         let Estat = document.querySelector("#estat").value;
         let location = document.querySelector("#location").value;
@@ -187,6 +186,9 @@ obtenirDades().then((data) => {
     
     })
 
+
+
+
     document.querySelector("#afegir").addEventListener('click',(event) => {
        
         /**Visualitzar taula de tikets*/ 
@@ -195,6 +197,9 @@ obtenirDades().then((data) => {
         document.querySelector("#divllistar").style.display="none"
     
     })
+
+
+
     
     document.querySelector("#llistar").addEventListener('click',(event) => {
       
@@ -217,6 +222,9 @@ obtenirDades().then((data) => {
         }
         /**Visualitzar taula de tickets */ 
     })
+
+
+
 
     document.querySelector("#esborraritems").addEventListener('click',(event) =>{
 
