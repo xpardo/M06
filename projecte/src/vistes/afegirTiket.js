@@ -71,7 +71,7 @@ export const creaHTMLFormulaariAfegir = (ticket,llistaautors,estat,localitat) =>
                 </div>
     
                 <div class="col-md-8 mb-3">
-                    <button id="enviar" type="button" class="btn btn-warning">Enviar</button>
+                    <button id="enviarTicket" type="button" class="btn btn-warning">Enviar</button>
                 </div>
 
             </form>

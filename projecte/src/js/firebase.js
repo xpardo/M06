@@ -16,7 +16,7 @@ export async function obtenirDades()  {
         data4 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/status.json')
         data4 = await data4.json();
 
-        data5 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/status.json')
+        data5 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/location.json')
         data5 = await data5.json();
 
 

@@ -17,18 +17,15 @@ import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
 import { ticket } from "./_common/js/classes/tickets-class.js"
 
-/* import { LocationsList } from "./_common/js/classes/locations-list-class.js" */
+import { LocationsList } from "./_common/js/classes/locations-list-class.js" 
 
 
-
-import { AutorsList } from "./_common/js/classes/autors-list-class.js";
-
-
+import { AutorsList } from "./_common/js/classes/autors-list-class.js"
 
 
 import { TicketStatuseList } from "./_common/js/classes/ticket_statuses_list-class.js"
 
-import { crearFormulariFiltrar } from './vistes/filtra.js';
+import { crearFormulariFiltrar } from './vistes/filtra.js'
 
 const nombre = 'Xenia';
 
@@ -124,7 +121,9 @@ obtenirDades().then((data) => {
         }
     })
 
-
+/**
+ * llistar
+ */
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
 
