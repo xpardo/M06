@@ -104,7 +104,7 @@ obtenirDades().then((data) => {
     })
 
 
-    document.querySelector("filtrar").addEventListener('click',(event) =>{
+    document.querySelector("#filtrar").addEventListener('click',(event) => {
         const estat = document.querySelector("#divfiltrar").style.display;
         const estatl = document.querySelector("#divllistar").style.display;
 
@@ -156,7 +156,7 @@ obtenirDades().then((data) => {
 
     })
 
-    document.querySelector("#enviarTicket").addEventListener('click', (event) => {
+    document.querySelector('#enviarTicket').addEventListener('click',(event) => {
 
         
 
