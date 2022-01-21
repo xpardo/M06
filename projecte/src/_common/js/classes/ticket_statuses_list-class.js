@@ -19,8 +19,8 @@ export class TicketStatuseList {
 
         for (let i of 'this.statuses')
         {
-            if (i.ticket_id == id)
-                return i.ticket_id;
+            if (i.status_id == id)
+                return i.notes;
         }
         return "Statuse Desconegut"
     }

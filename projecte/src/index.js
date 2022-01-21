@@ -51,7 +51,7 @@ let assets = new AssetsList();
 
 console.log(user)
 
-export let Ticket,status,tick,llista_autors,locations;
+export let Ticket,statuses,tick,llista_autors,locations;
 
 
 obtenirDades().then((data) => {
@@ -60,21 +60,21 @@ obtenirDades().then((data) => {
     llista_autors = new AutorsList(data[1]);
     const myArrClean = data[0].filter(Boolean)
     Ticket = new TicketsList (myArrClean);
-    status = new TicketStatuseList(data[4]);
+    statuses = new TicketStatuseList(data[4]);
     locations = new LocationsList(data[5]);
     
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,status,locations);
+    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,locations);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafeigir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,status,locations)
+    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,statuses,locations)
     document.body.append(cos)
 
     /**
@@ -133,7 +133,7 @@ obtenirDades().then((data) => {
             console.log("Esborrar",event.target.src,index)
             llista.esborraTickets(parseInt(index));
            
-            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(Ticket,llista_autors,status,locations);
+            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(Ticket,llista_autors,statuses,locations);
             delTicket(index)
            
         }
@@ -161,13 +161,13 @@ obtenirDades().then((data) => {
         let desc = document.querySelector("#desc").value;
         autorllibre[0]=document.querySelector("#autorllibre").value
         let assets = document.querySelector("#model").value;
-        let status = document.querySelector("#status").value;
+        let statuses = document.querySelector("#statuses").value;
         let locations = document.querySelector("#locations").value;
          
         console.warn("Darrer element",llista.darrer_element()) 
         let nouindex = parseInt(llista.darrer_element())+1;
 
-        let ticks = new ticket(title,desc,nom,assets,status,location);
+        let ticks = new ticket(title,desc,nom,assets,statuses,location);
         llista.nouTickets(tick);
         setTicket(ticks,nouindex);
 
@@ -177,7 +177,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_assets,status,locations);
+        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_assets,statuses,locations);
         document.body.append(cos);
     
         alert (title + " " + nouindex)
