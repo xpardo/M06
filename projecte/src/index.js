@@ -3,14 +3,15 @@ import { saludar } from './js/componentes';
 import './styles.css';
 
 import { creaHTMLFormulaariAfegir } from './vistes/afegirTiket.js'
+import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
+
 
 import { UsuarisList } from "./_common/js/classes/usuaris-list-class.js"  
 
 import { AssetsList } from "./_common/js/classes/assets-list-class.js" 
 
-import { obtenirDades } from "./js/firebase.js" 
+import { obtenirDades ,setTicket,delTicket} from "./js/firebase.js" 
 
-import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
 
@@ -190,7 +191,7 @@ obtenirDades().then((data) => {
     document.querySelector("#afegir").addEventListener('click',(event) => {
     
     
-        // Visualitzar taula de llibres
+        // Visualitzar taula de tiket
     
         document.querySelector("#divafegir").style.display="block"
         document.querySelector("#divllistar").style.display="none"
@@ -206,7 +207,7 @@ obtenirDades().then((data) => {
        
         document.querySelector("#divafegir").style.display="none"
         document.querySelector("#divllistar").style.display="block"
-        // Visualitzar taula de llibres
+        // Visualitzar taula de tiket
     
     })
 

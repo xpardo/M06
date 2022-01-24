@@ -8,18 +8,18 @@ export class TicketStatuseList {
 
     }
 
-    nouStatuse(statuse) {
+    nouStatus(status) {
 
-        this.statuses.push(statuse);
+        this.statuses.push(status);
         this.desarLocalStorage();
 
     }
    
-    cercaStatuse(id) {
+    cercaStatus(id) {
 
         for (let i of 'this.statuses')
         {
-            if (i.status_id == id)
+            if (i.id == id)
                 return i.notes;
         }
         return "Statuse Desconegut"

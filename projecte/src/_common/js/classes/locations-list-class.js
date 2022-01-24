@@ -1,14 +1,16 @@
-import Locations  from './locations-class'; 
+import Locations  from './locations-class';
 
 export class LocationsList {
 
     constructor(locations) {
 
         this.locations = locations;
+        console.log(this.locations);
+
 
     }
 
-    noulocation(location) {
+    nouLocation(location) {
 
         this.locations.push(location);
         this.desarLocalStorage();
@@ -19,11 +21,13 @@ export class LocationsList {
 
         for (let i of 'this.locations')
         {
-            if (i.name == id)
-                return i.name;
+            if (i.id_location == id)
+                return i.name
         }
-        return "Statuse Desconegut"
+        return "location Desconegut"
     }
+
+    
 
     
 

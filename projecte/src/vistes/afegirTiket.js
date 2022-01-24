@@ -8,15 +8,15 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,locations) => {
 
     for (let i of llistaautors.autors)  {
    
-        optionsed += "<option value=" + i.id_autor + ">"+i.nom+" "+i.cognoms +"</option>"
+        optionsed += "<option value=" + i.id_autor + ">"+i.nom+" "+i.cognoms + "</option>"
     }
 
-    for(let i of statuses.statuses) {
-        optionssed += "<option value='"+i.status_id +"'>"+i.notes+"'</option>"
+    for (let i of statuses.statuses)   {
+        optionssed += "<option value=" + i.status_id + ">" +i.notes + "</option>"
     }
   
-    for(let i of locations.locations){
-        optionsges += "<option value=' "+i.id+"'>" +i.name+"</option>"
+    for (let i of 'locations.locations')  {
+        optionsges += "<option value= " + i.id + ">" +i.name + "</option>"
     }
 
    
@@ -58,7 +58,7 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,locations) => {
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label for="locations" class="form-label">localitzacio</label>
+                    <label for="locations" class="form-label">localització</label>
                     <select id="locations" class="form-select" name="locations">
                         ${ optionsges }
                     </select>

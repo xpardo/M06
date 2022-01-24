@@ -19,7 +19,7 @@ export class AssetsList {
         return data1;
     }
 
-
+/* 
     nouAssets(assets) {
 
         this.assets.push(assets);
@@ -62,6 +62,6 @@ export class AssetsList {
                         : [];
 
     }
-
+ */
 
 }
