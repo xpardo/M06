@@ -25,7 +25,7 @@ export class AutorsList {
         }
         return "Autor Desconegut"
     }
-    cercaAutors(id_array) {
+    /* cercaAutors(id_array) {
         
         let retorn='';
 
@@ -34,7 +34,7 @@ export class AutorsList {
             retorn += this.cercaAutor(i)+"-"
         }
         return retorn.slice(0,-1); // Elimina el darrer '-'
-    }
+    } */
 
     filtraAutorsPerText(text)
     {

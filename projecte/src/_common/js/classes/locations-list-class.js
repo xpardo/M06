@@ -1,4 +1,4 @@
-import Locations  from './locations-class';
+/* import Locations  from './locations-class'; */
 
 export class LocationsList {
 

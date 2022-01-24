@@ -1,4 +1,4 @@
-import Ticket_statuses  from './ticket_statuses-class'; 
+/*  import Statuses  from './ticket_statuses-class';   */
 
 export class TicketStatuseList {
 
@@ -19,8 +19,8 @@ export class TicketStatuseList {
 
         for (let i of 'this.statuses')
         {
-            if (i.id == id)
-                return i.notes;
+            if (i.id_status == id)
+                return i.notes
         }
         return "Statuse Desconegut"
     }
