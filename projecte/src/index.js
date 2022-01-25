@@ -10,7 +10,7 @@ import { UsuarisList } from "./_common/js/classes/usuaris-list-class.js"
 
 import { AssetsList } from "./_common/js/classes/assets-list-class.js" 
 
-import { obtenirDades ,setTicket,delTicket} from "./js/firebase.js" 
+import { obtenirDades, setTicket, delTicket} from "./js/firebase.js" 
 
 
 import { TicketsList } from "./_common/js/classes/ticket-list-class.js"
@@ -24,7 +24,9 @@ import { LocationsList } from "./_common/js/classes/locations-list-class.js"
 import { AutorsList } from "./_common/js/classes/autors-list-class.js"
 
 
-import { TicketStatuseList } from "./_common/js/classes/ticket_statuses_list-class.js"
+import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
+
+
 
 import { crearFormulariFiltrar } from './vistes/filtra.js'
 
@@ -54,7 +56,6 @@ console.log(user)
 
 export let Ticket,statuses,tick,llista_autors,locations;
 
-
 obtenirDades().then((data) => {
     console.log(data);
 
@@ -62,7 +63,7 @@ obtenirDades().then((data) => {
     Ticket = new TicketsList (myArrClean);
 
     llista_autors = new AutorsList(data[1]);
-    statuses = new TicketStatuseList(data[4]);
+    statuses = new StatuseList(data[4]);
     locations = new LocationsList(data[5]);
     
     let cos= document.createElement('div');
@@ -200,7 +201,6 @@ obtenirDades().then((data) => {
     
     
     })
-
 
 
     

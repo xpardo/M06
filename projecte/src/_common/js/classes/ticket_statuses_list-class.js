@@ -1,50 +1,53 @@
-/*  import Statuses  from './ticket_statuses-class';   */
+/*  import Ticketstatuses  from './ticket_statuses-class';   */
 
 export class TicketStatuseList {
 
-    constructor(statuses) {
+    constructor(ticketstatuses) {
 
-        this.statuses = statuses;
+        this.ticketstatuses = ticketstatuses;
 
     }
 
-    nouStatus(status) {
+    noutStatus(status) {
 
-        this.statuses.push(status);
+        this.ticketstatuses.push(status);
         this.desarLocalStorage();
 
-    }
-   
-    cercaStatus(id) {
 
-        for (let i of 'this.statuses')
+    }
+    cercatStatus(id) {
+
+        for (let i of this.ticketstatuses)
         {
             if (i.id_status == id)
-                return i.notes
+                return i.notes ;
         }
-        return "Statuse Desconegut"
+        return "TicketStatuse Desconegut"
     }
 
     
 
-    filtraStatuses(){
-        let torna =this.status.filter((element)=>{
-            if(element.ticket_id.match(new RegExp(text,"i"))) 
-            return true;
+    filtratStatuses(){
+        let torna = this.ticketstatuses.filter((element)=>{
+
+            if(element.notes.match(new RegExp(text,"i"))) 
+                return true;
 
         });
         return torna;
     }
 
+
+
     desarLocalStorage() {
 
-        localStorage.setItem('statuses',JSON.stringify(this.statuses));
+        localStorage.setItem('ticketstatuses',JSON.stringify(this.ticketstatuses));
     }
     carregarLocalStorage() {
 
 
-        this.statuses = ( localStorage.getItem('statuses') )
-                        ? JSON.parse( localStorage.getItem('statuses') )
+        this.ticketstatuses = ( localStorage.getItem('ticketstatuses') )
+                        ? JSON.parse( localStorage.getItem('ticketstatuses') )
                         : [];
 
     }

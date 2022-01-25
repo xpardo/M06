@@ -25,7 +25,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, Estat, localitat) 
         
         let cad_usuari= llistaautors.cercaAutor(v.id_author)
   
-        let cad_Estat = Estat.cercaStatus(v.id_status)
+        let cad_Estat = Estat.cercaStatus(v.id)
 
         let cad_localitation = localitat.cercaLocation(v.id_location)
 

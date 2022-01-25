@@ -19,7 +19,7 @@ export class LocationsList {
    
     cercaLocation(id) {
 
-        for (let i of 'this.locations')
+        for (let i of this.locations)
         {
             if (i.id_location == id)
                 return i.name
@@ -32,7 +32,7 @@ export class LocationsList {
     
 
     filtraLocations(){
-        let torna =this.location.filter((element)=>{
+        let torna =this.locations.filter((element)=>{
             if(element.name.match(new RegExp(text,"i"))) 
             return true;
 

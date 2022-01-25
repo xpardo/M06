@@ -12,7 +12,7 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,locations) => {
     }
 
     for (let i of statuses.statuses)   {
-        optionssed += "<option value=" + i.status_id + ">" +i.notes + "</option>"
+        optionssed += "<option value=" + i.id + ">" +i.name + "</option>"
     }
   
     for (let i of locations.locations)  {
