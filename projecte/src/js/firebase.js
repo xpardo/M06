@@ -19,6 +19,7 @@ export async function obtenirDades()  {
         data5 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/location.json')
         data5 = await data5.json();
 
+  
 
         return ([data1,data2,data3,data4,data5]);
 

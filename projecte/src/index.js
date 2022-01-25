@@ -58,9 +58,10 @@ export let Ticket,statuses,tick,llista_autors,locations;
 obtenirDades().then((data) => {
     console.log(data);
 
-    llista_autors = new AutorsList(data[1]);
     const myArrClean = data[0].filter(Boolean)
     Ticket = new TicketsList (myArrClean);
+
+    llista_autors = new AutorsList(data[1]);
     statuses = new TicketStatuseList(data[4]);
     locations = new LocationsList(data[5]);
     
@@ -171,6 +172,7 @@ obtenirDades().then((data) => {
         let ticks = new ticket(title,desc,autor,nom,assets,statuses,location);
         llista.nouTickets(tick);
         setTicket(ticks,nouindex);
+
 
         document.querySelector("#divllistar");
         let cos= document.createElement('div');
