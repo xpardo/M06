@@ -1,13 +1,10 @@
-/* import Locations  from './locations-class'; */
+import Locations  from './locations-class'; 
 
 export class LocationsList {
 
     constructor(locations) {
 
         this.locations = locations;
-        console.log(this.locations);
-
-
     }
 
     nouLocation(location) {

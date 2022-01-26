@@ -1,4 +1,4 @@
-export class Locations {
+export class Location {
 
 
     constructor(id_location,name,parent_id) {

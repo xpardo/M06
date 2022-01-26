@@ -1,5 +1,5 @@
 
-export class statuses{
+export class Status{
 
 
     constructor(id,name,parent_id){

@@ -1,4 +1,4 @@
-/*  import Statuses  from './statuses-class';   */
+import Statuses  from './statuses-class';
 
 export class StatuseList {
 
@@ -12,20 +12,18 @@ export class StatuseList {
 
         this.statuses.push(status);
         this.desarLocalStorage();
-
-
     }
+
     cercaStatus(id) {
 
         for (let i of this.statuses)
         {
             if (i.id == id)
-                return i.name ;
+                return i.name;
         }
-        return "Statuse Desconegut"
+        return "statuses Desconegut"
     }
 
-    
 
     filtraStatuses(){
         let torna = this.statuses.filter((element)=>{
@@ -40,7 +38,6 @@ export class StatuseList {
 
 
     desarLocalStorage() {
-
         localStorage.setItem('statuses',JSON.stringify(this.statuses));
     }
     carregarLocalStorage() {
