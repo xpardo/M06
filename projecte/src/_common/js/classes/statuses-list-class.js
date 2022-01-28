@@ -16,6 +16,8 @@ export class StatuseList {
 
     cercaStatus(id) {
 
+        console.log(this.statuses)
+
         for (let i of this.statuses)
         {
             if (i.id == id)
@@ -26,13 +28,13 @@ export class StatuseList {
 
 
     filtraStatuses(){
-        let torna = this.statuses.filter((element)=>{
+        let statuses = this.statuses.filter((element)=>{
 
-            if(element.name.match(new RegExp(text,"i"))) 
                 return true;
 
         });
-        return torna;
+        return statuses;
+
     }
 
 

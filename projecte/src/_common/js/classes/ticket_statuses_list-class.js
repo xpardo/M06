@@ -28,13 +28,12 @@ export class TicketStatuseList {
     
 
     filtratStatuses(){
-        let torna = this.ticketstatuses.filter((element)=>{
+        let ticketstatuses = this.ticketstatuses.filter((element)=>{
 
-            if(element.notes.match(new RegExp(text,"i"))) 
                 return true;
 
         });
-        return torna;
+        return ticketstatuses;
     }
 
 

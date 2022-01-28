@@ -27,7 +27,6 @@ import { AutorsList } from "./_common/js/classes/autors-list-class.js"
 import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
 
 
-
 import { crearFormulariFiltrar } from './vistes/filtra.js'
 
 const nombre = 'Xenia';
@@ -126,6 +125,7 @@ obtenirDades().then((data) => {
         console.log(index)
 
         veureTicket(ticket.tickets[index]) */
+        
         event.preventDefault();
         let index=-1;
 

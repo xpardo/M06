@@ -3,7 +3,7 @@ export const ocultaLlistaTicket = () => {
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaautors, Estat, localitat) =>{
+export const creaHTMTicketsList = (TicketsList, llistaautors, estat, localitat) =>{
 
     let html=`
     <table class='table'>
@@ -25,7 +25,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, Estat, localitat) 
         
         let cad_usuari= llistaautors.cercaAutor(v.id_author)
   
-        let cad_Estat = Estat.cercaStatus(v.id)
+        let cad_Estat = estat.cercaStatus(v.id)
 
         let cad_localitation = localitat.cercaLocation(v.id_location)
 

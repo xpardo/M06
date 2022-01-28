@@ -18,38 +18,4 @@ export class UsuarisList {
         return data1;
     }
 
-    cercaUsuari(id) {
-
-        for (let i of this.username)
-        {
-            if (i.id_usuari == id)
-                return i.username
-        }
-        return "usuari Desconegud"
-    }
-
-    filtraUsuari(){
-        let torna= this.usuaris.filter((element)=>{
-            console.log(element.username)
-            if(element.username.match(new RegExp(text,"i")))
-            return true;
-        });
-        return torna;
-    }
-
-    desarLocalStorage() {
-
-        localStorage.setItem('usuaris',JSON.stringify(this.usuaris));
-    }
-    carregarLocalStorage() {
-
-
-        this.usuaris = ( localStorage.getItem('usuaris') )
-                        ? JSON.parse( localStorage.getItem('usuaris') )
-                        : [];
-
-    }
-
-    
-
 }

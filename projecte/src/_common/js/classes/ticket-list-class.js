@@ -38,11 +38,11 @@ export class TicketsList {
     }
 
 
-    Filtrar(usuaris,assets,status){
+    Filtrar(autor,statuses,locations){
         const d = this.tikets.filtrer((element)=>{
-            usuaris.map(ele => element.id_usuari.includes(ele)).includes(true)
-            assets.map(ele => element.id_asset.includes(ele)).includes(true)
-            status.map(ele=>element.id.includes(ele)).includes(true)
+            autor.map(ele => element.id_autor.includes(ele)).includes(true)
+            statuses.map(ele=>element.id.includes(ele)).includes(true)
+            locations.map(ele=>element.id_location.includes(ele)).includes(true)
         });
 
         return d

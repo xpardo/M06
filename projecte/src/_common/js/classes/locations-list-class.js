@@ -16,6 +16,8 @@ export class LocationsList {
    
     cercaLocation(id) {
 
+        console.log(this.locations)
+        
         for (let i of this.locations)
         {
             if (i.id_location == id)
@@ -29,12 +31,11 @@ export class LocationsList {
     
 
     filtraLocations(){
-        let torna =this.locations.filter((element)=>{
-            if(element.name.match(new RegExp(text,"i"))) 
+        let locations =this.locations.filter((element)=>{
             return true;
 
         });
-        return torna;
+        return locations;
     }
 
     desarLocalStorage() {
