@@ -7,20 +7,19 @@ export async function obtenirDades()  {
         data1 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/ticket.json')
         data1 = await data1.json();
         
-        data2 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/usuaris.json')
+        data2 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/autors.json')
         data2 = await data2.json();
 
         data3 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/assets.json')
         data3 = await data3.json();
 
-        data4 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/status.json')
+        data4 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/statuses.json')
         data4 = await data4.json();
 
-        data5 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/location.json')
+        data5 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/locations.json')
         data5 = await data5.json();
 
-  
-
+        console.log("eeeee",data5)
         return ([data1,data2,data3,data4,data5]);
 
     }
@@ -67,5 +66,3 @@ export async function setTicket(ticket,id) {
     }
 }
  
-
-///https://ticket-ec38b-default-rtdb.firebaseio.com/autors.json

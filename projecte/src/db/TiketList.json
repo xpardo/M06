@@ -85,7 +85,7 @@
   }],
 
 
-  "status": [{
+  "statuses": [{
     "id":0,
     "name":"uno",
     "parent_id":0

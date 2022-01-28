@@ -60,10 +60,14 @@ obtenirDades().then((data) => {
 
     const myArrClean = data[0].filter(Boolean)
     Ticket = new TicketsList (myArrClean);
+    console.log("Ticket", data[0]);
 
     llista_autors = new AutorsList(data[1]);
-    statuses = new StatuseList(data[4]);
-    locations = new LocationsList(data[5]);
+    statuses = new StatuseList(data[3]);
+    locations = new LocationsList(data[4]);
+    console.log("locations",data[4])
+    console.log("statuses",data[3])
+    console.log("autors",data[1])
     
     let cos= document.createElement('div');
     cos.id="divllistar"
