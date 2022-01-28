@@ -78,27 +78,45 @@
   "ticket": [{
     "id":0,
     "id_autors":0,
-    "titol":"incidencia",
+    "title":"incidencia",
     "desc":"esto es una incidencia",
     "assigned_id":0,
     "assets_id":0
   }],
 
 
-  "statuses": [{
+  "statuses": 
+  [{
     "id":0,
-    "name":"uno",
+    "name":"mal",
     "parent_id":0
+  },{
+
+    "id":1,
+    "name":"muy mal",
+    "parent_id":2
+  
 
   }],
 
-  
 
   "locations": [{
     "id_location":0,
     "name":"Aula 110",
     "parent_id":0
- 
+  },
+  {
+    "id_location":1,
+    "name":"Servidors",
+    "parent_id":1
+  },{
+    "id_location":2,
+    "name":"Aula 106",
+    "parent_id":2
+  },{
+    "id_location":3,
+    "name":"Departament Informàtica",
+    "parent_id":3
   }]
 
 

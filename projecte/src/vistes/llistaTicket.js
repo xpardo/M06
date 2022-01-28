@@ -41,7 +41,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat, localitat) 
             <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
         </tr>
         `
-        console.log(v.title)
+   
     });
         
     html +=`</tbody></table>`
