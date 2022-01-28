@@ -29,9 +29,7 @@ export class TicketStatuseList {
 
     filtratStatuses(){
         let ticketstatuses = this.ticketstatuses.filter((element)=>{
-
                 return true;
-
         });
         return ticketstatuses;
     }

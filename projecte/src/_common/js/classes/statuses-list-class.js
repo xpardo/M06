@@ -29,9 +29,7 @@ export class StatuseList {
 
     filtraStatuses(){
         let statuses = this.statuses.filter((element)=>{
-
                 return true;
-
         });
         return statuses;
 

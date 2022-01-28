@@ -17,7 +17,7 @@ export class LocationsList {
     cercaLocation(id) {
 
         console.log(this.locations)
-        
+
         for (let i of this.locations)
         {
             if (i.id_location == id)
@@ -33,7 +33,6 @@ export class LocationsList {
     filtraLocations(){
         let locations =this.locations.filter((element)=>{
             return true;
-
         });
         return locations;
     }
