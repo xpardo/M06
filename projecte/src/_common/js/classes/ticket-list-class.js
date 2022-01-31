@@ -3,33 +3,27 @@ export class TicketsList {
     constructor(tickets) {
 
         this.tickets=tickets;
-        console.log(this.tickets);
+
 
     }
 
     darrer_element() {
 
-        return this.ctikets.at(-1).id
+        return this.tickets.at(-1).id
     }
 
 
     nouTickets(id) {
 
 
-        this.tikets.foreach( (v,i) => {
-
-            if (v.id==id)
-            {
-                delete this.tickets[i];
-                console.log (this.tickets)
-            }
-        })
+        this.tickets.push(ticket);
+        return this.darrer_element();
 
     }
 
     cercaTicket(id) {
 
-        for (let i of this.tikets)
+        for (let i of this.tickets)
         {
             if (i.id == id)
                 return i.title
@@ -39,7 +33,7 @@ export class TicketsList {
 
 
     Filtrar(autor,statuses,locations){
-        const d = this.tikets.filtrer((element)=>{
+        const d = this.tickets.filtrer((element)=>{
             autor.map(ele => element.id_autor.includes(ele)).includes(true)
             statuses.map(ele=>element.id.includes(ele)).includes(true)
             locations.map(ele=>element.id_location.includes(ele)).includes(true)
@@ -50,7 +44,7 @@ export class TicketsList {
 
   
     esborraTickets(id) {
-        this.tikets.foreach( (v,i) => {
+        this.tickets.foreach( (v,i) => {
 
             if (v.id==id)
             {
@@ -68,7 +62,7 @@ export class TicketsList {
     carregarLocalStorage() {
 
         console.log("Aqui no entro")
-        this.tikets = ( localStorage.getItem('tickets') )
+        this.tickets = ( localStorage.getItem('tickets') )
             ? JSON.parse( localStorage.getItem('tickets') )
             : [];
 

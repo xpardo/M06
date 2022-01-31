@@ -2,6 +2,7 @@ import { saludar } from './js/componentes';
 
 import './styles.css';
 
+
 import { creaHTMLFormulaariAfegir } from './vistes/afegirTiket.js'
 import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
 
@@ -53,7 +54,7 @@ let assets = new AssetsList();
 
 console.log(user)
 
-export let Ticket,statuses,tick,llista_autors,locations;
+export let Ticket,llista_autors,statuses,locations;
 
 obtenirDades().then((data) => {
     console.log(data);
@@ -77,7 +78,7 @@ obtenirDades().then((data) => {
     document.body.append(cos)
 
     cos = document.createElement('div');
-    cos.id ="divafeigir"
+    cos.id ="divafegir"
     cos.style.display="none"
     cos.className="container w-50"
     cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,statuses,locations)
@@ -110,7 +111,7 @@ obtenirDades().then((data) => {
 
         const l = llista.filtrar(dv)
         console.log(l)
-        let cos = document.querySelector("#divllista")
+        let cos = document.querySelector("#divllistar")
         cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_location,llista_statuse)
     })
 
@@ -124,23 +125,19 @@ obtenirDades().then((data) => {
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
 
-        /* event.preventDefault();
-        let index=event.target.parentNode.previousElementSibling.innerHTML
-        console.log(index)
-
-        veureTicket(ticket.tickets[index]) */
         
         event.preventDefault();
         let index=-1;
 
-        console.log(event.target.className)
-        if (event.target.className == "delere")
+        console.lo("provant llista",event.target.className)
+        
+        if (event.target.className == "delete")
         {
             index=event.target.parentNode.parentNode.parentNode.id    
             console.log("Esborrar",event.target.src,index)
-            llista.esborraTickets(parseInt(index));
+            Ticket.esborraTickets(parseInt(index));
            
-            document.querySelector("#divllistar").innerHTML=creaHTMLlistaLlibres(Ticket,llista_autors,statuses,locations);
+            document.querySelector("#divllistar").innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,locations);
             delTicket(index)
            
         }
@@ -159,23 +156,24 @@ obtenirDades().then((data) => {
 
 
 
-
     document.querySelector("#enviarTicket").addEventListener('click', (event) => {
 
        
 
-        let title=document.querySelector("#title").value;
+        let title = document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
         let autor =document.querySelector("#author").value
         let assets = document.querySelector("#model").value;
         let statuses = document.querySelector("#statuses").value;
         let locations = document.querySelector("#locations").value;
          
-        console.warn("Darrer element",llista.darrer_element()) 
-        let nouindex = parseInt(llista.darrer_element())+1;
+  
+
+        console.warn("Darrer element",Ticket.darrer_element()) 
+        let nouindex = parseInt(Ticket.darrer_element())+1;
 
         let ticks = new ticket(title,desc,autor,nom,assets,statuses,location);
-        llista.nouTickets(tick);
+        Ticket.nouTickets(tick);
         setTicket(ticks,nouindex);
 
 
@@ -198,7 +196,7 @@ obtenirDades().then((data) => {
     document.querySelector("#afegir").addEventListener('click',(event) => {
     
     
-        // Visualitzar taula de tiket
+        // Visualitzar taula de ticket
     
         document.querySelector("#divafegir").style.display="block"
         document.querySelector("#divllistar").style.display="none"
@@ -213,7 +211,7 @@ obtenirDades().then((data) => {
        
         document.querySelector("#divafegir").style.display="none"
         document.querySelector("#divllistar").style.display="block"
-        // Visualitzar taula de tiket
+        // Visualitzar taula de ticket
     
     })
 
@@ -228,6 +226,8 @@ obtenirDades().then((data) => {
             document.querySelector("#divfiltrar").style.display = "none";
         }
     })
+
+    //Esborrar
 
     document.querySelector("#esborrar").addEventListener('click',(event) => {
     

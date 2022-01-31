@@ -11,8 +11,8 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat, localitat) 
             <tr>
                 <th>#id</th>
                 <th>title</th>
-                <th>Autors</th>
                 <th>Desc</th>
+                <th>Autors</th>
                 <th>localitzacio</th>
                 <th>Estat</th>
                 <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>

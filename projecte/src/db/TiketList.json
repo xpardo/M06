@@ -84,6 +84,13 @@
     "assets_id":0
   }],
 
+  "tickets": [{
+    "assigned_id": "0",
+    "author_id": "hd",
+    "desc": "1",
+    "id": "angry",
+    "title": "bird"
+  }],
 
   "statuses": 
   [{
