@@ -45,12 +45,6 @@ export class LocationsList {
         })
         return locations;
 
-        
-
-
-
-
-
 
     }
 

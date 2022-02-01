@@ -124,7 +124,29 @@
     "id_location":3,
     "name":"Departament Informàtica",
     "parent_id":3
+  }],
+
+
+
+  "model": [{
+    "id":0,
+    "model":"Monitor BENQ GW240"
+
+  },
+  {
+    "id":1,
+    "model":"Teclat Lenovo"
+
+  },{
+    "id":2,
+    "model":"Impressora Konica Minolta"
+
+  },{
+    "id":3,
+    "model":"Router Cisco XXXX"
+
   }]
+
 
 
 }

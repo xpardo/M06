@@ -99,17 +99,30 @@ obtenirDades().then((data) => {
     */
 
     document.querySelector('#ferfiltre').addEventListener('click',(event)=>{
+
+
+        /**
+         * Incidències: Per ubicacions, per autor, per estat
+         */
+        
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele)
-        const b = llista_location.filtraLocations(ele)
-        const w = llista_statuses.filtraStatuses(ele)
+
+        const eles =document.querySelector('#filtrar').value
+        const b = llista_location.filtraLocations(eles)
+
+        const eless =document.querySelector('#filtrar').value
+        const w = llista_statuses.filtraStatuses(eless)
         
         console.log("llistar",v,b,w)
 
-        const dv = v.map(ele=>ele.id_autor,ele=>ele.id_location,ele=>ele.id)
+        const dv = v.map(ele=>ele.id_autor)
+        const dvv = vv.map(eles=>eles.id_location)
+        const dvvv = vvv.map(eless=>eless.id)
+
         console.log(dv)
 
-        const l = llista.Filtrar(dv)
+        const l = llista.Filtrar(dv,dvv,dvvv)
         console.log(l)
         let cos = document.querySelector("#divllistar")
         cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_location,llista_statuses)
