@@ -36,8 +36,8 @@ export class TicketsList {
     Filtrar(autor,statuses,locations){
         const d = this.tickets.filtrer((element)=>{
             autor.map(ele => element.id_autor.includes(ele)).includes(true)
-            statuses.map(ele=>element.id.includes(ele)).includes(true)
-            locations.map(ele=>element.id.includes(ele)).includes(true)
+            statuses.map(eless=>element.id.includes(eless)).includes(true)
+            locations.map(eles=>element.id.includes(eles)).includes(true)
         });
 
         return d

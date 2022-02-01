@@ -28,6 +28,9 @@ import { AutorsList } from "./_common/js/classes/autors-list-class.js"
 import { StatuseList } from "./_common/js/classes/statuses-list-class.js"
 
 
+import { ModelsList } from "./_common/js/classes/model-list-class.js" 
+
+
 import { crearFormulariFiltrar } from './vistes/filtra.js'
 
 const nombre = 'Xenia';
@@ -54,7 +57,7 @@ let assets = new AssetsList();
 
 console.log(user)
 
-export let Ticket,llista_autors,statuses,locations;
+export let Ticket,llista_autors,statuses, models, locations;
 
 obtenirDades().then((data) => {
     console.log(data);
@@ -66,6 +69,8 @@ obtenirDades().then((data) => {
     llista_autors = new AutorsList(data[1]);
     statuses = new StatuseList(data[3]);
     locations = new LocationsList(data[4]);
+    models = new ModelsList(data[5]); 
+    console.log("models",data[5])
     console.log("locations",data[4])
     console.log("statuses",data[3])
     console.log("autors",data[1])
@@ -74,14 +79,14 @@ obtenirDades().then((data) => {
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
-    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,locations);
+    cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,models,locations);
     document.body.append(cos)
 
     cos = document.createElement('div');
     cos.id ="divafegir"
     cos.style.display="none"
     cos.className="container w-50"
-    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,statuses,locations)
+    cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,statuses,models,locations)
     document.body.append(cos)
 
     /**
@@ -104,15 +109,17 @@ obtenirDades().then((data) => {
         /**
          * Incidències: Per ubicacions, per autor, per estat
          */
-        
+
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele)
 
-        const eles =document.querySelector('#filtrar').value
-        const b = llista_location.filtraLocations(eles)
+        
 
         const eless =document.querySelector('#filtrar').value
         const w = llista_statuses.filtraStatuses(eless)
+
+        const eles =document.querySelector('#filtrar').value
+        const b = llista_location.filtraLocations(eles)
         
         console.log("llistar",v,b,w)
 
@@ -150,7 +157,7 @@ obtenirDades().then((data) => {
             console.log("Esborrar",event.target.src,index)
             Ticket.esborraTickets(parseInt(index));
            
-            document.querySelector("#divllistar").innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,locations);
+            document.querySelector("#divllistar").innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,models,locations);
             delTicket(index)
            
         }
@@ -176,7 +183,7 @@ obtenirDades().then((data) => {
         let title = document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
         let autor =document.querySelector("#author").value
-        let model = document.querySelector("#model").value;
+        let models = document.querySelector("#models").value;
         let statuses = document.querySelector("#statuses").value;
         let locations = document.querySelector("#locations").value;
          
@@ -185,7 +192,7 @@ obtenirDades().then((data) => {
         console.warn("Darrer element",Ticket.darrer_element()) 
         let nouindex = parseInt(Ticket.darrer_element())+1;
 
-        let ticks = new ticket(title,desc,autor,model,statuses,locations);
+        let ticks = new ticket(title,desc,autor,models,statuses,locations);
         Ticket.nouTickets(tick);
         setTicket(ticks,nouindex);
 
@@ -196,7 +203,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_model,statuses,locations);
+        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_models,statuses,locations);
         document.body.append(cos);
     
         alert (title + " " + nouindex)
