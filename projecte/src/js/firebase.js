@@ -1,6 +1,6 @@
 export async function obtenirDades()  {
 
-    let data1,data2,data3,data4,data5;
+    let data1,data2,data3,data4,data5,data6;
 
     try {
 
@@ -19,17 +19,21 @@ export async function obtenirDades()  {
         data5 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/locations.json')
         data5 = await data5.json();
 
+        data6 = await fetch('https://ticket-ec38b-default-rtdb.firebaseio.com/tickets.json')
+        data6 = await data6.json();
+
         console.log("ticket",data1)
         console.log("autors",data2)
         console.log("assests",data3)
         console.log("statuses",data4)
         console.log("locations",data5)
-        return ([data1,data2,data3,data4,data5]);
+        console.log("Tickets guardats",data6)
+        return ([data1,data2,data3,data4,data5,data6]);
 
     }
     catch {
 
-        cconsole.log("...Error")
+        console.log("...Error")
         return "null"
     }
    

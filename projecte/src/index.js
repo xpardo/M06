@@ -102,17 +102,17 @@ obtenirDades().then((data) => {
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele)
         const b = llista_location.filtraLocations(ele)
-        const w = llista_statuse.filtraStatuses(ele)
+        const w = llista_statuses.filtraStatuses(ele)
         
-        console.log(v,b,w)
+        console.log("llistar",v,b,w)
 
-        const dv = v.map(ele=>ele.id_usuari,ele=>ele.id_asset,ele=>ele.id)
+        const dv = v.map(ele=>ele.id_autor,ele=>ele.id_location,ele=>ele.id)
         console.log(dv)
 
-        const l = llista.filtrar(dv)
+        const l = llista.Filtrar(dv)
         console.log(l)
         let cos = document.querySelector("#divllistar")
-        cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_location,llista_statuse)
+        cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_location,llista_statuses)
     })
 
 
@@ -129,7 +129,7 @@ obtenirDades().then((data) => {
         event.preventDefault();
         let index=-1;
 
-        console.lo("provant llista",event.target.className)
+        console.log("provant llista",event.target.className)
         
         if (event.target.className == "delete")
         {
@@ -163,7 +163,7 @@ obtenirDades().then((data) => {
         let title = document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
         let autor =document.querySelector("#author").value
-        let assets = document.querySelector("#model").value;
+        let model = document.querySelector("#model").value;
         let statuses = document.querySelector("#statuses").value;
         let locations = document.querySelector("#locations").value;
          
@@ -172,7 +172,7 @@ obtenirDades().then((data) => {
         console.warn("Darrer element",Ticket.darrer_element()) 
         let nouindex = parseInt(Ticket.darrer_element())+1;
 
-        let ticks = new ticket(title,desc,autor,nom,assets,statuses,location);
+        let ticks = new ticket(title,desc,autor,model,statuses,locations);
         Ticket.nouTickets(tick);
         setTicket(ticks,nouindex);
 
@@ -183,7 +183,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_assets,statuses,locations);
+        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_model,statuses,locations);
         document.body.append(cos);
     
         alert (title + " " + nouindex)

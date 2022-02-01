@@ -26,7 +26,8 @@ export class TicketsList {
         for (let i of this.tickets)
         {
             if (i.id == id)
-                return i.title
+                return i.desc
+                
         }
         return "Tiket Desconeguda"
     }
@@ -36,7 +37,7 @@ export class TicketsList {
         const d = this.tickets.filtrer((element)=>{
             autor.map(ele => element.id_autor.includes(ele)).includes(true)
             statuses.map(ele=>element.id.includes(ele)).includes(true)
-            locations.map(ele=>element.id_location.includes(ele)).includes(true)
+            locations.map(ele=>element.id.includes(ele)).includes(true)
         });
 
         return d

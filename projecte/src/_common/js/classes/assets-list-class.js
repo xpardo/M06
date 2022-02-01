@@ -6,7 +6,7 @@ export class AssetsList {
     constructor(assets) {
 
         this.assets = [];
-        this.obtenirDades().then ((data) =>  { this.assets=data; console.log(data) } );
+        this.obtenirDades().then ((data) =>  { this.assets=data; console.log("assets",data) } );
 
     }
     async obtenirDades()
@@ -19,7 +19,7 @@ export class AssetsList {
         return data1;
     }
 
-/* 
+
     nouAssets(assets) {
 
         this.assets.push(assets);
@@ -32,7 +32,7 @@ export class AssetsList {
         for (let i of this.assets)
         {
             if (i.id_asset == id)
-                return i.location;
+                return i.model;
 
         }
         return "assets Desconeguda"
@@ -62,6 +62,6 @@ export class AssetsList {
                         : [];
 
     }
- */
+ 
 
 }
