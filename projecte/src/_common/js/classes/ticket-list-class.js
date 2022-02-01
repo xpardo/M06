@@ -13,7 +13,7 @@ export class TicketsList {
     }
 
 
-    nouTickets(id) {
+    nouTickets(ticket) {
 
 
         this.tickets.push(ticket);

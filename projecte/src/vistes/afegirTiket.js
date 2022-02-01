@@ -57,7 +57,7 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,models,locations)
             
                 <div class="col-md-4 mb-3">
                     <label for="models" class="form-label">models</label>
-                    <select id="statuses" class="form-select" name="statuses">
+                    <select id="models" class="form-select" name="models">
                         ${ optionsseddd }    
                     </select>
                 </div>
