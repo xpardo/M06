@@ -9,7 +9,9 @@ export class TicketsList {
 
     darrer_element() {
 
-        return this.tickets.at(-1).id
+
+        return this.tickets.slice(-1)[0].id
+
     }
 
 

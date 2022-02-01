@@ -33,9 +33,15 @@ import { ModelsList } from "./_common/js/classes/model-list-class.js"
 
 import { crearFormulariFiltrar } from './vistes/filtra.js'
 
+
+
+
 const nombre = 'Xenia';
 
 saludar( nombre );
+
+
+
 
 import head from "./_common/html/head.html";
 let hed = document.createElement('div');
@@ -52,10 +58,15 @@ let div = document.createElement('div');
 div.innerHTML=footer;
 document.body.append(div);
 
+
+
+
+
 let user = new UsuarisList();
 let assets = new AssetsList();
 
-console.log(user)
+console.log("usuaris",user)
+console.log("assets",assets)
 
 export let Ticket,llista_autors,statuses, models, locations;
 
@@ -192,8 +203,8 @@ obtenirDades().then((data) => {
         console.warn("Darrer element",Ticket.darrer_element()) 
         let nouindex = parseInt(Ticket.darrer_element())+1;
 
-        let ticks = new ticket(title,desc,autor,models,statuses,locations);
-        Ticket.nouTickets(tick);
+        let ticks = new ticket(nouindex,title,desc,autor,models,statuses,locations);
+        Ticket.nouTickets(ticks);
         setTicket(ticks,nouindex);
 
 
@@ -203,7 +214,7 @@ obtenirDades().then((data) => {
         cos.className="container w-75"
         cos.style.display="none"
     
-        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,llista_models,statuses,locations);
+        cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,models,statuses,locations);
         document.body.append(cos);
     
         alert (title + " " + nouindex)
