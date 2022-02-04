@@ -42,8 +42,8 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,models,locations)
                 </div>
       
                 <div class="col-md-4 mb-3">
-                    <label for="author" class="form-label">author</label>
-                    <select id="author" class="form-select" name="author">
+                    <label for="autors" class="form-label">autors</label>
+                    <select id="autors" class="form-select" name="autors">
                         ${ optionsed }
                     </select>
                 </div>

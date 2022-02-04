@@ -122,28 +122,28 @@ obtenirDades().then((data) => {
          */
 
         const ele =document.querySelector('#filtrar').value
-        const v = llista_autors.filtraAutorsPerText(ele)
+        const v = llista_autors.filtraAutorsPerText(ele);
 
         
 
         const eless =document.querySelector('#filtrar').value
-        const w = llista_statuses.filtraStatuses(eless)
+        const w = statuses.filtraStatuses(eless)
 
         const eles =document.querySelector('#filtrar').value
-        const b = llista_location.filtraLocations(eles)
+        const b = locations.filtraLocations(eles)
         
         console.log("llistar",v,b,w)
 
-        const dv = v.map(ele=>ele.id_autor)
-        const dvv = vv.map(eles=>eles.id_location)
+        const dv = v.map(ele=>ele.id)
+        const dvv = vv.map(eles=>eles.id)
         const dvvv = vvv.map(eless=>eless.id)
 
-        console.log(dv)
+        console.log(dv,dvv,dvvv)
 
-        const l = llista.Filtrar(dv,dvv,dvvv)
+        const l = Ticket.Filtrar(dv,dvv,dvvv)
         console.log(l)
         let cos = document.querySelector("#divllistar")
-        cos.innerHTML=creaHTMTicketsList(l,llista_autors,llista_location,llista_statuses)
+        cos.innerHTML=creaHTMTicketsList(l,llista_autors,statuses,locations)
     })
 
 
@@ -193,7 +193,7 @@ obtenirDades().then((data) => {
 
         let title = document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
-        let autor =document.querySelector("#author").value
+        let autors =document.querySelector("#autors").value
         let models = document.querySelector("#models").value;
         let statuses = document.querySelector("#statuses").value;
         let locations = document.querySelector("#locations").value;
@@ -203,7 +203,7 @@ obtenirDades().then((data) => {
         console.warn("Darrer element",Ticket.darrer_element()) 
         let nouindex = parseInt(Ticket.darrer_element())+1;
 
-        let ticks = new ticket(nouindex,title,desc,autor,models,statuses,locations);
+        let ticks = new ticket(nouindex,title,desc,autors,models,statuses,locations);
         Ticket.nouTickets(ticks);
         setTicket(ticks,nouindex);
 
@@ -260,7 +260,7 @@ obtenirDades().then((data) => {
 
     //Esborrar
 
-    document.querySelector("#esborrar").addEventListener('click',(event) => {
+     document.querySelector("#esborrar").addEventListener('click',(event) => {
     
         let esborrables = document.querySelectorAll(".esborrar");
 
@@ -269,25 +269,30 @@ obtenirDades().then((data) => {
             i.classList.toggle('invisible')
             console.log(i.innerHTML)
         }
-        /**Visualitzar taula de tickets */ 
+  
     })
 
 
 
+    document.querySelector("#esborraritems").addEventListener('click',(event) =>
+    {
 
-    document.querySelector("#esborraritems").addEventListener('click',(event) =>{
+            let clicked= document.querySelectorAll(".esborrar")
 
-        let clicked= document.querySelectorAll(".esborrar")
+            for (let i of clicked) 
+            {
+                
+                if (i.checked == true){
 
-        for (let i of clicked) 
-        {    
-            if (i.checked == true){
+                    llista.esborraTickets()
+                    console.log(i.parentNode.parentNode.firstChild.innerHTML)   
 
-                llista.esborraTickets()
-                console.log(i.parentNode.parentNode.firstChild.innerHTML)   
+
+                }
+
 
             }
-        }
+
     })
 }) 
 

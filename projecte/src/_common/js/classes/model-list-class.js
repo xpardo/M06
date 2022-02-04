@@ -16,7 +16,6 @@ export class ModelsList {
    
     cercaModel(id) {
 
-
         for (let i of this.models)
         {
             if (i.id == id)

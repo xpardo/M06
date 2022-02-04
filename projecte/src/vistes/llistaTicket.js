@@ -3,7 +3,7 @@ export const ocultaLlistaTicket = () => {
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaautors, estat,models ,localitat) =>{
+export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, localitat) =>{
 
     let html=`
     <table class='table'>
@@ -16,7 +16,8 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat,models ,loca
                 <th>localitzacio</th>
                 <th>model</th>
                 <th>Estat</th>
-                <th class='esborrar invisible'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>
+                <th class='esborrar invisible'>
+                <button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button></th>
             </tr>
         </thead>
     <tbody>
@@ -24,13 +25,14 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat,models ,loca
 
     TicketsList.tickets.forEach( (v,i,array) => {
         
-        let cad_usuari= llistaautors.cercaAutor(v.id)
 
         let cad_desc = TicketsList.cercaTicket(v.id) 
 
-        let cad_model = models.cercaModel(v.id)  
-     
+        let cad_usuari= llistaautors.cercaAutor(v.id)
+
         let cad_Estat = estat.cercaStatus(v.id)
+
+        let cad_model = models.cercaModel(v.id)  
 
         let cad_localitation = localitat.cercaLocation(v.id)
 
@@ -44,10 +46,16 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat,models ,loca
             <td>${cad_localitation}</td>
             <td>${cad_model}</td>
             <td>${cad_Estat}</td>
-            <td><input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
+
+            <td>
+
+
+            <a href=""><img class="delere" width=80 height=80 src="./assets/img/pape.png"></a>
+
+            <input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
         </tr>
         `
-   
+            
     });
         
     html +=`</tbody></table>`
