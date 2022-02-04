@@ -36,25 +36,34 @@ export class TicketsList {
 
 
     Filtrar(autor,statuses,locations){
-        const d = this.tickets.filtrer((element)=>{
-            autor.map(ele => element.id_autor.includes(ele)).includes(true)
-            statuses.map(eless=>element.id.includes(eless)).includes(true)
-            locations.map(eles=>element.id.includes(eles)).includes(true)
-        });
+        const d = this.tickets.filter((element)=>
+            autor.map(ele => element.id.includes(ele)).includes(true)||
+            statuses.map(eles=>element.id.includes(eles)).includes(true)||
+            locations.map(eless=>element.id.includes(eless)).includes(true)
+        )
 
-        return d
+        return d;
     }
 
   
     esborraTickets(id) {
-        this.tickets.foreach( (v,i) => {
+        /* this.tickets.foreach( (v,i) => {
 
             if (v.id==id)
             {
                 delete this.tickets[i];
                 console.log (this.tickets)
             }
-        })
+        }) */
+
+
+        
+        const trobat = this.tickets.find (element => element.id === id)
+        console.log("trobat",trobat)
+        const trobatindex = this.tickets.findIndex (element => element.id === id)
+        console.log("trobat",trobatindex)
+        this.tickets.splice(trobatindex,1)
+        console.log(this.tickets)
         
     }
 

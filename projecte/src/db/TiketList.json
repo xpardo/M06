@@ -84,23 +84,16 @@
     "assets_id":0
   }],
 
-  "tickets": [{
-    "assigned_id": "0",
-    "author_id": "hd",
-    "desc": "bird",
-    "id": "1",
-    "title": "angry"
-  }],
 
   "statuses": 
   [{
     "id":0,
-    "name":"mal",
+    "name":"malament",
     "parent_id":0
   },{
 
     "id":1,
-    "name":"muy mal",
+    "name":"mol malament",
     "parent_id":2
   
 

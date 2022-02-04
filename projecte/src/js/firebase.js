@@ -31,7 +31,6 @@ export async function obtenirDades()  {
         console.log("statuses",data4)
         console.log("locations",data5)
         console.log("model",data6)
-        console.log("Tickets guardats",data7)
         return ([data1,data2,data3,data4,data5,data6,data7]);
 
     }

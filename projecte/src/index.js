@@ -71,7 +71,7 @@ console.log("assets",assets)
 export let Ticket,llista_autors,statuses, models, locations;
 
 obtenirDades().then((data) => {
-    console.log(data);
+    console.log("data",data);
 
     const myArrClean = data[0].filter(Boolean)
     Ticket = new TicketsList (myArrClean);
@@ -126,24 +126,24 @@ obtenirDades().then((data) => {
 
         
 
-        const eless =document.querySelector('#filtrar').value
-        const w = statuses.filtraStatuses(eless)
-
         const eles =document.querySelector('#filtrar').value
-        const b = locations.filtraLocations(eles)
+        const w = statuses.filtraStatuses(eles)
+
+        const eless =document.querySelector('#filtrar').value
+        const b = locations.filtraLocations(eless)
         
         console.log("llistar",v,b,w)
 
-        const dv = v.map(ele=>ele.id)
-        const dvv = vv.map(eles=>eles.id)
-        const dvvv = vvv.map(eless=>eless.id)
+        const dv = v.map(ele=>ele.id)//users
+        const dw = w.map(eles=>eles.id)//statuses
+        const db = b.map(eless=>eless.name)//locations
 
-        console.log(dv,dvv,dvvv)
+        console.log(dv,dw,db)
 
-        const l = Ticket.Filtrar(dv,dvv,dvvv)
-        console.log(l)
+        const l = Ticket.Filtrar(dv,dw,db)
+        console.log("filtra",l)
         let cos = document.querySelector("#divllistar")
-        cos.innerHTML=creaHTMTicketsList(l,llista_autors,statuses,locations)
+        cos.innerHTML=creaHTMTicketsList(l,llista_autors,statuses,models,locations)
     })
 
 
@@ -259,7 +259,7 @@ obtenirDades().then((data) => {
     })
 
     //Esborrar
-
+/* 
      document.querySelector("#esborrar").addEventListener('click',(event) => {
     
         let esborrables = document.querySelectorAll(".esborrar");
@@ -270,8 +270,8 @@ obtenirDades().then((data) => {
             console.log(i.innerHTML)
         }
   
-    })
-
+    }) 
+ */
 
 
     document.querySelector("#esborraritems").addEventListener('click',(event) =>
