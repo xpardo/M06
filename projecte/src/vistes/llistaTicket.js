@@ -25,7 +25,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
     TicketsList.tickets.forEach( (v,i,array) => {
         
 
-        let cad_desc = TicketsList.cercaTicket(v.id) 
+        let cad_desc = TicketsList.cercaTicket(v.id_autors) 
 
         let cad_usuari= llistaautors.cercaAutor(v.id)
 

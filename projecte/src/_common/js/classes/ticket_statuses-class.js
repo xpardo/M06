@@ -2,12 +2,12 @@
 export class Ticket_statuses{
 
 
-    constructor(id,id_status,ticket_id,author_id,notes,created){
+    constructor(id,id_status,ticket_id,id_autors,notes,created){
         
         this.id=id;
         this.id_status=id_status;
         this.ticket_id=ticket_id;
-        this.author_id=author_id;
+        this.id_autors=id_autors;
         this.notes=notes;
         this.created=created;
 
