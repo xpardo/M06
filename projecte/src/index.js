@@ -75,7 +75,7 @@ obtenirDades().then((data) => {
 
     const myArrClean = data[0].filter(Boolean)
     Ticket = new TicketsList (myArrClean);
-    console.log("Ticket", data[0]);
+    console.log("Data 0", data[0]);
 
     llista_autors = new AutorsList(data[1]);
     statuses = new StatuseList(data[3]);
