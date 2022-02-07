@@ -37,10 +37,13 @@ export class TicketsList {
 
     Filtrar(autor,statuses,locations){
         const d = this.tickets.filter((element)=>
-            autor.map(ele => element.id_autors.includes(ele)).includes(true)||
+            autor.map(ele => element.id_autor.includes(ele)).includes(true)||
+           
             statuses.map(eles=>element.id.includes(eles)).includes(true)||
             locations.map(eless=>element.id.includes(eless)).includes(true)
         )
+
+        console.log("filtra autor", id_autor);
 
         return d;
     }
@@ -55,9 +58,7 @@ export class TicketsList {
                 console.log (this.tickets)
             }
         }) */
-
-
-        
+      
         const trobat = this.tickets.find (element => element.id === id)
         console.log("trobat",trobat)
         const trobatindex = this.tickets.findIndex (element => element.id === id)

@@ -108,7 +108,8 @@ obtenirDades().then((data) => {
     divfiltrar.style.display="none"
     divfiltrar.className="container w-75"
     divfiltrar.innerHTML=crearFormulariFiltrar()
-    document.body.append(divfiltrar)
+    document.body.insertBefore(divfiltrar,document.querySelector("#divllistar"))
+
 
     /**
     * Filtratge
@@ -124,26 +125,33 @@ obtenirDades().then((data) => {
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele);
 
-        
-
+    
         const eles =document.querySelector('#filtrar').value
         const w = statuses.filtraStatuses(eles)
 
         const eless =document.querySelector('#filtrar').value
         const b = locations.filtraLocations(eless)
         
-        console.log("llistar",v,b,w)
+        console.log("filtra autor",v)
+        console.log("filtra statuses",w)
+        console.log("filtra locations",b)
 
         const dv = v.map(ele=>ele.id)//users
         const dw = w.map(eles=>eles.id)//statuses
         const db = b.map(eless=>eless.name)//locations
 
-        console.log(dv,dw,db)
 
-        const l = Ticket.Filtrar(dv,dw,db)
-        console.log("filtra",l)
+
+        const l = Ticket.Filtrar(dv)
+        const c = Ticket.Filtrar(dw)
+        const t = Ticket.Filtrar(db)
+
+        console.log("filtra autor",l)
+        console.log("filtra statuses",c)
+        console.log("filtra locations",t)
+
         let cos = document.querySelector("#divllistar")
-        cos.innerHTML=creaHTMTicketsList(l,llista_autors,statuses,models,locations)
+        cos.innerHTML=creaHTMTicketsList(l,c,t,llista_autors,statuses,models,locations)
     })
 
 
