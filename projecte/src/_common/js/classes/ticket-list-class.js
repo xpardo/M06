@@ -34,13 +34,12 @@ export class TicketsList {
         return "Tiket Desconeguda"
     }
 
-
     Filtrar(autor,statuses,locations){
         const d = this.tickets.filter((element)=>
-            autor.map(ele => element.id_autor.includes(ele)).includes(true)||
+            autor.map(ele => element.id_autor?.includes(ele))?.includes(true)||
            
-            statuses.map(eles=>element.id.includes(eles)).includes(true)||
-            locations.map(eless=>element.id.includes(eless)).includes(true)
+            statuses.map(eles=>element.id?.includes(eles))?.includes(true)||
+            locations.map(eless=>element.id?.includes(eless))?.includes(true)
         )
 
         console.log("filtra autor", id_autor);
