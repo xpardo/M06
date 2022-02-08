@@ -6,6 +6,8 @@ const CopyPlugin     = require("copy-webpack-plugin");
 const CssMinimizer = require('css-minimizer-webpack-plugin');
 const Terser       = require('terser-webpack-plugin');
 
+var webpack = require('webpack');
+
 module.exports = {
     
     mode: "production",
@@ -60,6 +62,12 @@ module.exports = {
     },
 
     plugins: [
+
+        new webpack.ProvidePlugin({
+            $:'jquery',
+            JQuery:'jquery'
+        }),
+
         new HtmlWebpack({
             title: 'Mi Webpack App',
             // filename: 'index.html',

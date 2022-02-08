@@ -1,7 +1,8 @@
+import 'jquery'
+
 import { saludar } from './js/componentes';
 
 import './styles.css';
-
 
 import { creaHTMLFormulaariAfegir } from './vistes/afegirTiket.js'
 import { creaHTMTicketsList, veureTicket} from './vistes/llistaTicket.js'
