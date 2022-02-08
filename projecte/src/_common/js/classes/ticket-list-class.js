@@ -14,7 +14,6 @@ export class TicketsList {
 
     }
 
-
     nouTickets(ticket) {
 
 
