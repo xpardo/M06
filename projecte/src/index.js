@@ -342,14 +342,14 @@ obtenirDades().then((data) => {
              */
 
             const ele =document.querySelector('#filtrar').value
-            const v = llista_autors.filtraAutorsPerText(ele);
+            const v = llista_autors.filtraAutor(ele);//users
 
         
             const eles =document.querySelector('#filtrar').value
-            const w = statuses.filtraStatuses(eles)
+            const w = statuses.filtraStatuses(eles)//statuses
 
             const eless =document.querySelector('#filtrar').value
-            const b = locations.filtraAssigned(eless)
+            const b = locations.filtraAssigned(eless)//location
             
             console.log("filtra autor",v)
             console.log("filtra statuses",w)
@@ -491,12 +491,6 @@ obtenirDades().then((data) => {
     })
 
 
-
-
-     
-
-
-
     $("#esborraritems").on({
         click: ((event) => {
             let clicked= $(".esborrar")
@@ -516,10 +510,6 @@ obtenirDades().then((data) => {
             }
         })
     })
-
-    
-    
-
 
 
 

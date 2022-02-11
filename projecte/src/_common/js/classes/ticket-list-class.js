@@ -64,6 +64,11 @@ export class TicketsList {
     }
 
 
+
+    /**
+     * filtrar
+     */
+    
     filtraAutors(id)
     {
         let tickets= this.tickets.filter((element) => {
@@ -76,7 +81,7 @@ export class TicketsList {
 
     filtraAssigned(id)
     {
-        let assigned= this.assigned.filter((element) => {
+        let assigned= this.tickets.filter((element) => {
         
             // console.log(element.nom)
             if (element.assigned_id.match(new RegExp(id,"i")));
@@ -88,13 +93,11 @@ export class TicketsList {
 
     Filtrar(autor,statuses,locations){
         const d = this.tickets.filter((element)=>
-            autor.map(ele => element.id_autor?.includes(ele))?.includes(true)||
-           
-            statuses.map(eles=>element.assigned_id?.includes(eles))?.includes(true)||
-            locations.map(eless=>element.id?.includes(eless))?.includes(true)//assigned
+            autor.map(ele => element.id_autor.includes(ele)).includes(true)||
+            statuses.map(eles=>element.assigned_id.includes(eles)).includes(true)||
+            locations.map(eless=>element.id.includes(eless)).includes(true)//assigned
         )
 
-        console.log("filtra autor", id_autor);
 
         return d;
     }

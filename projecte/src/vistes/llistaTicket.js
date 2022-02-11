@@ -31,7 +31,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
 
         let cad_model = TicketsList.cercaAssets(v.id)  
 
-        let cad_localitation = localitat.cercaLocation(v.id)
+        let cad_localitation = TicketsList.cercaAssigned(v.id)//location
 
         let cad_Estat = estat.cercaStatus(v.id)
 
@@ -68,7 +68,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
 
 //filtrar
 
-///ubicació,autor,estat -> location,author,estat
+///ubicació,autor,estat -> location,author,estatus
 
 export const veureTicket = (tickets) => {
 
