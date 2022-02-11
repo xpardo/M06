@@ -32,12 +32,12 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,models,locations)
 
                 <div class="col-md-12 mb-3" >
                     <label for="title"  class="form-label"> title </label>
-                    <input type="text" minlength="3" required pattern="[A-Za-z0-9]+" class="form-control" id="title" placeholder="id">
+                    <input type="text" minlength="3" required pattern="[A-Za-z0-9]+" class="form-control" id="title" placeholder="title">
                 </div>
             
                 <div class="col-md-12 mb-3" >
                     <label for="Desc"  class="form-label">Desc</label>
-                    <input type="text" minlength="4" class="form-control" id="desc" placeholder="id">
+                    <input type="text" minlength="4" class="form-control" id="desc" placeholder="desc">
                     
                 </div>
       

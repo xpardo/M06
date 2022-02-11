@@ -63,12 +63,35 @@ export class TicketsList {
         return "assignacio Desconeguda"
     }
 
+
+    filtraAutors(id)
+    {
+        let tickets= this.tickets.filter((element) => {
+        
+            // console.log(element.nom)
+            if (element.nom.match(new RegExp(id,"i")));
+        })
+        return tickets;
+    }
+
+    filtraAssigned(id)
+    {
+        let assigned= this.assigned.filter((element) => {
+        
+            // console.log(element.nom)
+            if (element.assigned_id.match(new RegExp(id,"i")));
+        })
+        return assigned;
+    }
+
+
+
     Filtrar(autor,statuses,locations){
         const d = this.tickets.filter((element)=>
             autor.map(ele => element.id_autor?.includes(ele))?.includes(true)||
            
-            statuses.map(eles=>element.id?.includes(eles))?.includes(true)||
-            locations.map(eless=>element.id?.includes(eless))?.includes(true)
+            statuses.map(eles=>element.assigned_id?.includes(eles))?.includes(true)||
+            locations.map(eless=>element.id?.includes(eless))?.includes(true)//assigned
         )
 
         console.log("filtra autor", id_autor);

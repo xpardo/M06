@@ -349,7 +349,7 @@ obtenirDades().then((data) => {
             const w = statuses.filtraStatuses(eles)
 
             const eless =document.querySelector('#filtrar').value
-            const b = locations.filtraLocations(eless)
+            const b = locations.filtraAssigned(eless)
             
             console.log("filtra autor",v)
             console.log("filtra statuses",w)

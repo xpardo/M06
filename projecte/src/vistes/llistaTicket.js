@@ -25,15 +25,15 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
     TicketsList.tickets.forEach( (v,i,array) => {
         
 
-        let cad_desc = TicketsList.cercaTicket(v.id_autors) 
+        let cad_desc = TicketsList.cercaTicket(v.id) 
 
-        let cad_usuari= llistaautors.cercaAutor(v.id)
+        let cad_usuari= TicketsList.cercaAutor(v.id)
 
-        let cad_Estat = estat.cercaStatus(v.id)
-
-        let cad_model = models.cercaModel(v.id)  
+        let cad_model = TicketsList.cercaAssets(v.id)  
 
         let cad_localitation = localitat.cercaLocation(v.id)
+
+        let cad_Estat = estat.cercaStatus(v.id)
 
         html += 
         `
@@ -64,6 +64,11 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
     return html;
 }
 
+
+
+//filtrar
+
+///ubicació,autor,estat -> location,author,estat
 
 export const veureTicket = (tickets) => {
 
