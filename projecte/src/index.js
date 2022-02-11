@@ -87,12 +87,15 @@ obtenirDades().then((data) => {
     console.log("statuses",data[3])
     console.log("autors",data[1])
     
+   /* 
     let cos= document.createElement('div');
     cos.id="divllistar"
     cos.style.display="none"
     cos.className="container w-75"
     cos.innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,models,locations);
     document.body.append(cos)
+
+ 
 
     cos = document.createElement('div');
     cos.id ="divafegir"
@@ -101,9 +104,6 @@ obtenirDades().then((data) => {
     cos.innerHTML=creaHTMLFormulaariAfegir(llista_autors,statuses,models,locations)
     document.body.append(cos)
 
-    /**
-     * component de Filtratge
-     */
     let divfiltrar = document.createElement("div")
     divfiltrar.id="divfiltrar"
     divfiltrar.style.display="none"
@@ -112,16 +112,10 @@ obtenirDades().then((data) => {
     document.body.insertBefore(divfiltrar,document.querySelector("#divllistar"))
 
 
-    /**
-    * Filtratge
-    */
+   
 
     document.querySelector('#ferfiltre').addEventListener('click',(event)=>{
 
-
-        /**
-         * Incidències: Per ubicacions, per autor, per estat
-         */
 
         const ele =document.querySelector('#filtrar').value
         const v = llista_autors.filtraAutorsPerText(ele);
@@ -153,19 +147,15 @@ obtenirDades().then((data) => {
 
         let cos = document.querySelector("#divllistar")
         cos.innerHTML=creaHTMTicketsList(l,c,t,llista_autors,statuses,models,locations)
-    })
 
 
 
-  
+    }) 
 
-/**
- * llistar
- */
 
     document.querySelector("#divllistar").addEventListener('click',(event) => {
 
-        
+            
         event.preventDefault();
         let index=-1;
 
@@ -176,10 +166,10 @@ obtenirDades().then((data) => {
             index=event.target.parentNode.parentNode.parentNode.id    
             console.log("Esborrar",event.target.src,index)
             Ticket.esborraTickets(parseInt(index));
-           
+        
             document.querySelector("#divllistar").innerHTML=creaHTMTicketsList(Ticket,llista_autors,statuses,models,locations);
             delTicket(index)
-           
+        
         }
         else if (event.target.className == "vide")
         {
@@ -194,20 +184,14 @@ obtenirDades().then((data) => {
 
     })
 
-
-
     document.querySelector("#enviarTicket").addEventListener('click', (event) => {
-
-       
 
         let title = document.querySelector("#title").value;
         let desc = document.querySelector("#desc").value;
         let autors =document.querySelector("#autors").value
         let models = document.querySelector("#models").value;
         let statuses = document.querySelector("#statuses").value;
-        let locations = document.querySelector("#locations").value;
-         
-  
+        let locations = document.querySelector("#locations").value;     
 
         console.warn("Darrer element",Ticket.darrer_element()) 
         let nouindex = parseInt(Ticket.darrer_element())+1;
@@ -215,7 +199,6 @@ obtenirDades().then((data) => {
         let ticks = new ticket(nouindex,title,desc,autors,models,statuses,locations);
         Ticket.nouTickets(ticks);
         setTicket(ticks,nouindex);
-
 
         document.querySelector("#divllistar");
         let cos= document.createElement('div');
@@ -228,35 +211,28 @@ obtenirDades().then((data) => {
     
         alert (title + " " + nouindex)
     
-    })
+    }) 
 
 
 
-
-    document.querySelector("#afegir").addEventListener('click',(event) => {
-    
-    
-        // Visualitzar taula de ticket
+     document.querySelector("#afegir").addEventListener('click',(event) => {
     
         document.querySelector("#divafegir").style.display="block"
         document.querySelector("#divllistar").style.display="none"
     
     
     })
-
-
+ 
     
+
     document.querySelector("#llistar").addEventListener('click',(event) => {
     
-       
         document.querySelector("#divafegir").style.display="none"
         document.querySelector("#divllistar").style.display="block"
-        // Visualitzar taula de ticket
-    
-    })
 
-   
-    document.querySelector("#filtrar").addEventListener('click',(event) => {
+    }) 
+    
+       document.querySelector("#filtrar").addEventListener('click',(event) => {
         const estat = document.querySelector("#divfiltrar").style.display;
         const estatl = document.querySelector("#divllistar").style.display;
 
@@ -267,26 +243,263 @@ obtenirDades().then((data) => {
         }
     })
 
-    //Esborrar
-/* 
-     document.querySelector("#esborrar").addEventListener('click',(event) => {
-    
-        let esborrables = document.querySelectorAll(".esborrar");
-
-        for (let i of esborrables)
-        { 
-            i.classList.toggle('invisible')
-            console.log(i.innerHTML)
-        }
-  
-    }) 
- */
 
 
     document.querySelector("#esborraritems").addEventListener('click',(event) =>
     {
 
-            let clicked= document.querySelectorAll(".esborrar")
+        let clicked= document.querySelectorAll(".esborrar")
+
+        for (let i of clicked) 
+        {   
+            if (i.checked == true){
+
+                llista.esborraTickets()
+                console.log(i.parentNode.parentNode.firstChild.innerHTML)   
+
+            }
+        }
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    */
+
+    //block=show
+    //none = hide
+
+    /**
+     * 
+     * Jquery
+     */
+
+ 
+
+    let cos = $("<div></div>", {
+
+        id: "divllistar",
+        
+        class: "container w-75",
+        
+        hide: true,
+
+        html:creaHTMTicketsList(Ticket,llista_autors,statuses,models,locations)
+        
+        
+    })
+    $("body").append(cos)
+       
+
+    let co = $("<div></div>", {
+
+            id: "divafegir",
+            
+            class: "container w-75",
+            
+            hide: true,
+    
+            html:creaHTMLFormulaariAfegir(llista_autors,statuses,models,locations)
+            
+            
+    })
+            
+        $("body").append(co)
+    
+    
+
+
+    let divfiltrar = $("<div></div>", {
+
+        id: "divfiltrar",
+        
+        class: "container w-75",
+        
+        hide: true,
+
+        html:crearFormulariFiltrar()
+        
+        
+    })
+        
+    $("body").append(divfiltrar) 
+
+ 
+
+
+    $("#ferfiltre").on ({
+        click: ((event) => {
+
+
+            /**
+             * Incidències: Per ubicacions, per autor, per estat
+             */
+
+            const ele =document.querySelector('#filtrar').value
+            const v = llista_autors.filtraAutorsPerText(ele);
+
+        
+            const eles =document.querySelector('#filtrar').value
+            const w = statuses.filtraStatuses(eles)
+
+            const eless =document.querySelector('#filtrar').value
+            const b = locations.filtraLocations(eless)
+            
+            console.log("filtra autor",v)
+            console.log("filtra statuses",w)
+            console.log("filtra locations",b)
+
+            const dv = v.map(ele=>ele.id)//users
+            const dw = w.map(eles=>eles.id)//statuses
+            const db = b.map(eless=>eless.name)//locations
+
+
+            const l = Ticket.Filtrar(dv)
+            const c = Ticket.Filtrar(dw)
+            const t = Ticket.Filtrar(db)
+
+            console.log("filtra autor",l)
+            console.log("filtra statuses",c)
+            console.log("filtra locations",t)
+
+            $("#divllistar").html(creaHTMTicketsList(l,c,t,llista_autors,statuses,models,locations))
+
+        })
+    })
+
+
+
+
+  
+    $("#divllistar").on({
+        click:((event)=>{
+            event.preventDefault();
+            let index=-1;
+
+            console.log("provant llista",event.target.className)
+            
+            if (event.target.className == "delete")
+            {
+                index=event.target.parentNode.parentNode.parentNode.id    
+                console.log("Esborrar",event.target.src,index)
+                Ticket.esborraTickets(parseInt(index));
+            
+                $("#divllistar").html(creaHTMTicketsList(Ticket,llista_autors,statuses,models,locations));
+                delTicket(index)
+            
+            }
+            else if (event.target.className == "vide")
+            {
+                index=event.target.parentNode.parentNode.parentNode.id    
+                console.log("Veure",event.target.src,index)
+            }
+            else if (event.target.className == "mutare")
+            {
+                index=event.target.parentNode.parentNode.parentNode.id    
+                console.log("Modificar",event.target.src,index)
+            }
+
+        })
+    })
+
+
+
+
+    $("#enviarTicket").on({
+        click:((event)=>{
+            let title     = $("#title").val();
+            let desc      = $('#desc').val();
+            let autors    = $('#autors').val();
+            let models    = $('#models').val();
+            let statuses  = $('#statuses').val();
+            let locations = $('#locations').val();
+        
+            
+            console.warn("Darrer element",Ticket.darrer_element()) 
+            let nouindex = parseInt(Ticket.darrer_element())+1;
+        
+        
+
+            let co = $("<div></div>", {
+
+                id: "divllistar",
+                
+                class: "container w-75",
+                
+                hide: true,
+        
+                html:creaHTMTicketsList(Ticket,llista_autors,models,statuses,locations)
+                
+                
+            })
+                
+            $("body").append(co)
+
+            let ticks = new ticket(nouindex,title,desc,autors,models,statuses,locations);
+            Ticket.nouTickets(ticks);
+            setTicket(ticks,nouindex);
+        
+
+            alert (title + " " + nouindex)
+
+        })
+
+    })
+
+
+    $("#afegir").on("click",(event)=> {
+        $("#divllistar").hide("slow");
+            $("#divafegir").show("slow");
+
+        $("button").on("click",function() {
+            $("h1").css("color","red")
+            
+        })
+
+    })
+
+
+
+    $("#llistar").on({
+        click:((event)=>{
+            $("#divllistar").show("slow");
+                $("#divafegir").hide("slow");
+                
+        })
+    })
+
+   
+
+    $("#filtrar").on({
+        click:((event)=>{
+            const estat = ("#divfiltrar");
+            const estatl = ("#divllistar");
+
+            if (estat == "none" && estatl == "block"){
+                $("#divfiltrar").hide("slow");
+            }else{
+                $("#divfiltrar").show("slow");
+            }
+                
+        })
+    })
+
+
+
+
+     
+
+
+
+    $("#esborraritems").on({
+        click: ((event) => {
+            let clicked= $(".esborrar")
 
             for (let i of clicked) 
             {
@@ -301,8 +514,15 @@ obtenirDades().then((data) => {
 
 
             }
-
+        })
     })
+
+    
+    
+
+
+
+
 }) 
 
     

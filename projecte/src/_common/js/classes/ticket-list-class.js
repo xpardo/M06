@@ -32,6 +32,36 @@ export class TicketsList {
         }
         return "Tiket Desconeguda"
     }
+    cercaAssigned(id) {
+
+        for (let i of this.tickets)
+        {
+            if (i.id == id)
+                return i.assigned_id
+                
+        }
+        return "assignacio Desconeguda"
+    }
+    cercaAutor(id) {
+
+        for (let i of this.tickets)
+        {
+            if (i.id == id)
+                return i.id_autors
+                
+        }
+        return "assignacio Desconeguda"
+    }
+    cercaAssets(id) {
+
+        for (let i of this.tickets)
+        {
+            if (i.id == id)
+                return i.assets_id
+                
+        }
+        return "assignacio Desconeguda"
+    }
 
     Filtrar(autor,statuses,locations){
         const d = this.tickets.filter((element)=>

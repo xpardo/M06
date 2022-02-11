@@ -12,9 +12,9 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
                 <th>id</th>
                 <th>title</th>
                 <th>Desc</th>
-                <th>Autors</th>
-                <th>localitzacio</th>
-                <th>model</th>
+                <th>id_autors</th>
+                <th>assigned_id</th>
+                <th>assets_id</th>
                 <th>Estat</th>
                 <th class='esborrar'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button>
                 </tr>
@@ -50,6 +50,9 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
 
 
             <a class="delere" href=""><i class="fas fa-trash-alt"></i></a>
+            <a class="update" href=""><i class="fas fa-duotone fa-wrench"></i></a>
+            <a class="created" href=""><i class="fas fa-solid fa-calendar-circle-plus"></i></a>
+          
 
             <input class="esborrar form-check-input invisible" type="checkbox" value="" id="esb${v.id}""></td>
         </tr>
