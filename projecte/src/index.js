@@ -416,6 +416,7 @@ obtenirDades().then((data) => {
             let title     = $("#title").val();
             let desc      = $('#desc').val();
             let autors    = $('#autors').val();
+            let assigned   = $('#assigned').val();
             let models    = $('#models').val();
             let statuses  = $('#statuses').val();
             let locations = $('#locations').val();
@@ -441,7 +442,7 @@ obtenirDades().then((data) => {
                 
             $("body").append(co)
 
-            let ticks = new ticket(nouindex,title,desc,autors,models,statuses,locations);
+            let ticks = new ticket(nouindex,title,desc,autors,assigned,models,statuses,locations);
             Ticket.nouTickets(ticks);
             setTicket(ticks,nouindex);
         
@@ -491,6 +492,10 @@ obtenirDades().then((data) => {
     })
 
 
+
+
+
+
     $("#esborraritems").on({
         click: ((event) => {
             let clicked= $(".esborrar")
@@ -510,6 +515,10 @@ obtenirDades().then((data) => {
             }
         })
     })
+
+    
+    
+
 
 
 

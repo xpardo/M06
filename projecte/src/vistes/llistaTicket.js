@@ -3,7 +3,7 @@ export const ocultaLlistaTicket = () => {
 
 }
 
-export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, localitat) =>{
+export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,model, localitat) =>{
 
     let html=`
     <table class='table'>
@@ -15,6 +15,7 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
                 <th>id_autors</th>
                 <th>assigned_id</th>
                 <th>assets_id</th>
+                <th>model</th>
                 <th>Estat</th>
                 <th class='esborrar'><button id="esborraritems" type="button" class="btn btn-outline-danger btn-sm">Esborrar</button>
                 </tr>
@@ -27,12 +28,14 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
 
         let cad_desc = TicketsList.cercaTicket(v.id) 
 
-        let cad_usuari= TicketsList.cercaAutor(v.id)
-
-        let cad_model = TicketsList.cercaAssets(v.id)  
+        let cad_autor= TicketsList.cercaAutor(v.id)
 
         let cad_localitation = TicketsList.cercaAssigned(v.id)//location
 
+        let cad_asset = TicketsList.cercaAssets(v.id) 
+
+        let cad_model = model.cercaModel(v.id)  
+       
         let cad_Estat = estat.cercaStatus(v.id)
 
         html += 
@@ -41,8 +44,9 @@ export const creaHTMTicketsList = (TicketsList, llistaautors, estat ,models, loc
             <td>${v.id}</td>
             <td><a href="">${v.title}</a></td>
             <td>${cad_desc}</td>
-            <td>${cad_usuari}</td>
+            <td>${cad_autor}</td>
             <td>${cad_localitation}</td>
+            <td>${cad_asset}</td>
             <td>${cad_model}</td>
             <td>${cad_Estat}</td>
 

@@ -20,8 +20,8 @@ export class AutorsList {
 
         for (let i of this.autors)
         {
-            if (i.id_autor == id)
-                return i.cognoms + ", "+i.nom;
+            if (i.id == id)
+                return i.username;
         }
         return "Autor Desconegut"
     }

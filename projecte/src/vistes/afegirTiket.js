@@ -4,7 +4,7 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,models,locations)
     let optionssed='';
     let optionsges='';
     let optionsseddd='';
-   
+    let optionsseddds='';
 
 
     for (let i of llistaautors.autors)  {
@@ -24,6 +24,7 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,models,locations)
         optionsseddd += "<option value= " + i.id + ">" +i.model + "</option>"
     }
 
+    
    
   
     let html=
@@ -47,6 +48,13 @@ export const creaHTMLFormulaariAfegir = (llistaautors,statuses,models,locations)
                         ${ optionsed }
                     </select>
                 </div>
+
+
+
+                
+
+
+
 
                 <div class="col-md-12 mb-3">
                     <label for="statuses" class="form-label">Estat</label>

@@ -1,5 +1,5 @@
 {
-  "autors": [{"id_autor":0,"cognoms":"Herbert","nom":"Frank"},{"id_autor":1,"cognoms":"Asimov","nom":"Isaac"},{"id_autor":2,"cognoms":"de Pedrolo","nom":"Manuel"},{"id_autor":3,"cognoms":"Gaiman","nom":"Neil"},{"id_autor":4,"cognoms":"Pratchett","nom":"Terry"}],
+  "autors": [{"id":0,"username":"armand", "password" : "maletin","id_role" : 0},{"id":1,"username" : "pep","password" : "maletin","id_role" : 1},{"id":2,"username":"jordi","password" : "maletin","id_role" : 3},{"id_autor":3,"username":"alicia","password" : "maletin","id_role" : 2},{"id":4,"username":"cristina","password" : "maletin","id_role" : 0}],
 
     "usuaris":[ {
     "id_usuari" : 0,
