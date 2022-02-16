@@ -5,8 +5,7 @@ export class AutorsList {
     constructor(autors) {
 
         this.autors=autors;
-        //this.carregarLocalStorage();
-        //console.log(this.autors);
+        
     }
 
     nouAutor(autor) {
