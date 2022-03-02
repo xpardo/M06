@@ -3,12 +3,12 @@ import Hello from "./Hello"
 function HelloWorld() {
            
     return Hello.map((contacts, index) => {
-       const { id, name, imgURL, phone, email } = contacts 
+       const { card, name, avatar, phone, email } = contacts 
        return (
-          <tr key={id}>
-             <td>{id}</td>
+          <tr key={card}>
+             <td>{card}</td>
              <td>{name}</td>
-             <td>{imgURL}</td>
+             <td>{avatar}</td>
              <td>{phone}</td>
              <td>{email}</td>
           </tr>
