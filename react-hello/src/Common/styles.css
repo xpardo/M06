@@ -1,0 +1,32 @@
+.baix {
+
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  bottom: 2px;
+  transform: translate(-50%, 0%);
+  margin: 0 auto;
+}
+.dalt {
+
+  width:100%;
+  position: fixed;
+  left: 50%;
+  top: 2px;
+  transform: translate(-50%, 0%);
+  margin: 0 auto;
+
+
+}
+
+.centre {
+    position:fixed;
+    
+    left: 50%;
+    top: 150px;
+    transform: translate(-50%, 0%);
+    margin: 0 auto;
+    
+}
+
+
