@@ -15,17 +15,17 @@ const Tickets = () => {
             <div className='centre'>
                 <Tickets/>
 
-        <table>
-        <tbody > {
-            tickets.map((valor, index) => {
-                // return <tr key={valor.id}><td> { valor.title }</td><td> { valor.desc }</td></tr>
+            <table>
+            <tbody > {
+                tickets.map((valor, index) => {
+                    // return <tr key={valor.id}><td> { valor.title }</td><td> { valor.desc }</td></tr>
 
-                return <Ticket key = { index }ticket = { valor }/>
+                    return <Ticket key = { index } ticket = { valor }/>
 
-            })
-        } </tbody> </table>
+                })
+            } </tbody> </table>
 
-        </div>
+            </div>
 
         )
     })

@@ -4,14 +4,14 @@ import Footer from './Common/Footer'
 import Header from './Common/Header'
 
 const App = ({ tickets }) => {
-  const { title, desc,author_id,assigned_id, status_id,asset_id,updated,created } = tickets
+  const { title, desc, author_id, assigned_id, status_id, asset_id, updated, created } = tickets
   return (
-    <>
+    <div>
     
     <div><Header/></div>
     <div><Tickets/>
     
-
+          <table>
             <tr>
               <td> {title} </td> 
               <td> {desc} </td> 
@@ -21,13 +21,13 @@ const App = ({ tickets }) => {
               <td> {asset_id} </td>  
               <td> {created} </td>  
               <td> {updated} </td>  
-
-           <tr>
-       
+            </tr>
+          </table>    
+        </div>
     
-    </div>
+   
     <div><Footer/></div>
-    </>
+    </div>
   )
 }
 
