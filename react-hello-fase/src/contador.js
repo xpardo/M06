@@ -5,36 +5,34 @@ function contador({  item }) {
     const incrementar = (e) =>{
         e.preventDefault();
         console.log(document.getElementById("#zero").value )
-            if (valor.value < 10) valor.value++;
+            if (zero.value < 10) zero.value++;
     }
     const decrementar = (d) =>{
         d.preventDefault();
         console.log(document.getElementById("#zero").value )
-            if (valor.value > 0) valor.value--;
+            if (zero.value > 0) zero.value--;
     }
     const makeAnOrder = (m) =>{
         m.preventDefault();
         console.log(document.getElementById("#zero").value )
-        document.write("<h2>ok</h2>");
+        document.write({zero});
     }
     <div>
   
         <div onclick={incrementar}>
-        0<input type={text} value={zero} id={item} name={item} disabled/>
+       {0} <input  value={zero} id={zero}  disabled/>
 
             +
         </div>
     
         <div onclick={decrementar}>
-        0<input type={text} value={zero} id={item} name={item} disabled/>
-
+        {0} <input  value={zero} id={zero}  disabled/>
             -
         </div>
                 
-        <div onclick={makeAnOrder}>
-        0<input type={text} value={zero} id={item} name={item} disabled/>
+        {0}<div onclick={makeAnOrder}>
+        <input  value={zero} id={zero}  disabled/>
 
-            Aceptar
         </div>
     </div>
 
