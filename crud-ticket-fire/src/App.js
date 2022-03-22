@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
 
+
+
 import { db } from "./firebase"
 
 
@@ -17,6 +19,8 @@ const App = () => {
   const [assigned_id, setAssig] = useState("")
   const [status_id, setStat] = useState("")
   const [asset_id, setAss] = useState("")
+  const [create, setcrea] = useState("")
+  const [update, setupd] = useState("")
   const [tickets, setTickets] = useState([])
   const [modeEdicio, setModeEdicio] = useState(false)
   const [id, setId] = useState("")
@@ -50,7 +54,10 @@ const App = () => {
     setAssig(item.assigned_id)
     setStat(item.status_id)
     setAss(item.asset_id)
+    setcrea(item.create)
+    setupd(item.update) 
     setId(item.id)
+   
 
   }
 
@@ -75,6 +82,8 @@ const App = () => {
       assigned_id:assigned_id,
       status_id:status_id,
       asset_id:asset_id,
+      create:create,
+      update:update,
       created: serverTimestamp(),
       
 
@@ -86,6 +95,8 @@ const App = () => {
     setAutor('')
     setAssig('')
     setAss('')
+    setcrea('')
+    setupd('')
     setModeEdicio(false)
     setError(null)
 
@@ -118,6 +129,8 @@ const App = () => {
     setAutor('')
     setAssig('')
     setAss('')
+    setcrea('')
+    setupd('')
     setError(null)
 
     addDoc(tickCollectionRef,{
@@ -127,6 +140,8 @@ const App = () => {
       assigned_id:assigned_id,
       status_id:status_id,
       asset_id:asset_id,
+      create:create,
+      update:update,
       created: serverTimestamp(),
       
     })
@@ -138,11 +153,11 @@ const App = () => {
   return (
    
   <div className="container mt-5">
-    <h1 className="text-center">CRUD APP</h1>
+    <h1 className="text-center">CRUD TICKET</h1>
     <hr/>
     <div className="row">
 
-      <div className="col-8">
+      <div className="col-11">
         <h4 className="text-center">Llista de Tickets</h4>
          
         <ul className="list-group">
@@ -158,49 +173,59 @@ const App = () => {
                 return (
   
                   <li key = { v.id } className="list-group-item" >
-                    <table>
-                    <tr style={{backgroundColor: 'aquamarine' }}>
-                        <th>title </th>
-                         
-                         <th>desc </th>
-                       
-                         <th>author_id </th>
-                   
-                         <th>assigned_id </th>
+                    <table style={{class:'table table-striped table-warning'}}>
+                
+                    <tr style={{backgroundColor: '#676565', color:'white'}}>
+                          <th>TITLE </th>
+                          
+                          <th>DESCRIPCIO </th>
                         
-                         <th>status_id </th>
-                        
-                         <th>asset_id </th>
+                          <th>AUTHOR_ID </th>
                     
+                          <th>ASSIGNED_ID </th>
+                          
+                          <th>STATUS_ID </th>
+                          
+                          <th>ASSET_ID  </th>
+
+                          <th>CREATED</th>
+
+                          <th>UPDATED</th>
+                          
+                          <th></th>
+                          <th></th>
                         </tr>
+                     
                         <tr style={{backgroundColor: 'white'}}>
                           
-                          <th>{ v.title }</th>
+                          <td>{ v.title }</td>
                          
-                          <th>{ v.desc }</th>
+                          <td>{ v.desc }</td>
                         
-                          <th>{ v.author_id }</th>
+                          <td>{ v.author_id }</td>
                     
-                          <th>{ v.assigned_id }</th>
+                          <td>{ v.assigned_id }</td>
                          
-                          <th>{ v.status_id }</th>
+                          <td>{ v.status_id }</td>
                          
-                          <th>{ v.asset_id }</th>
+                          <td>{ v.asset_id }</td>
 
+                          <td>{ v.create }</td>
+
+                         <td>{ v.update }</td>
+                         
+
+                          <td><button 
+                          className="btn btn-sm btn-danger float-right mx-2"
+                          onClick={ () => esborrarTicket(v.id) }
+                          >Esborrar</button></td>
                           
+                          <td><button 
+                          className="btn btn-sm btn-warning float-right"
+                          onClick={ () => editar (v)}
+                          >Editar</button></td>
                         </tr>
-                    </table> 
-
-                        <button 
-                        className="btn btn-sm btn-danger float-right mx-2"
-                        onClick={ () => esborrarTicket(v.id) }
-                        >Esborrar</button>
-
-                        <button 
-                        className="btn btn-sm btn-warning float-right"
-                        onClick={ () => editar (v)}
-                        >Editar</button>
-               
+                    </table>
                   </li>
   
                 )
@@ -210,91 +235,118 @@ const App = () => {
           
         </ul>
       </div>
+          <br></br>
+          <br></br>
+      <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white border-b border-gray-200">
+             
+              <div className="col-12">
+                <h4 className="text-center">
+                  {
+                    modeEdicio ? "Editar Ticket"  : "Afegir Ticket"
+                  }
+              
+                </h4>
+                  <form onSubmit={ modeEdicio ? editarTickets : afegirTickets }>
+                    <center>
+                    <span className='text-danger'>{ error } </span>
+                    <label>title</label>
+                    <input 
+                      type="text" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix Ticket"
+                      onChange={ e => setTicket(e.target.value)  }
+                      value = { ticket } />
+                    <label>desc</label>
+                    <input 
+                      type="text" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix descripcio"
+                      onChange={ e => setDesc(e.target.value)  }
+                      value = { desc }
+                    />
+                    <label>author_id</label>
+                    <input 
+                      type="number" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix author_id"
+                      onChange={ e => setAutor(e.target.value)  }
+                      value = { author_id }
+                    />
+                    <label>assigned_id</label>
+                    <input 
+                      type="number" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix assigned_id"
+                      onChange={ e => setAssig(e.target.value)  }
+                      value = { assigned_id }
+                    />
+                    <label>status_id</label>
+                    <input 
+                      type="number" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix status_id"
+                      onChange={ e => setStat(e.target.value)  }
+                      value = { status_id }
+                    />
+                    <label>asset_id</label>
+                    <input 
+                      type="text" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix asset_id"
+                      onChange={ e => setAss(e.target.value)  }
+                      value = { asset_id }
+                    />
 
-      <div className="col-4">
-        <h4 className="text-center">
-          {
-            modeEdicio ? "Editar Ticket"  : "Afegir Ticket"
-          }
-       
-       </h4>
-        <form onSubmit={ modeEdicio ? editarTickets : afegirTickets }>
-          <span className='text-danger'>{ error } </span>
-          <label>title</label>
-          <input 
-            type="text" 
-            className="form-control mb-2"
-            placeholder="Afegeix Ticket"
-            onChange={ e => setTicket(e.target.value)  }
-            value = { ticket }
-         />
-         <label>desc</label>
-         <input 
-            type="text" 
-            className="form-control mb-2"
-            placeholder="Afegeix descripcio"
-            onChange={ e => setDesc(e.target.value)  }
-            value = { desc }
-         />
-         <label>author_id</label>
-          <input 
-            type="text" 
-            className="form-control mb-2"
-            placeholder="Afegeix author_id"
-            onChange={ e => setAutor(e.target.value)  }
-            value = { author_id }
-         />
-         <label>assigned_id</label>
-          <input 
-            type="text" 
-            className="form-control mb-2"
-            placeholder="Afegeix assigned_id"
-            onChange={ e => setAssig(e.target.value)  }
-            value = { assigned_id }
-         />
-         <label>status_id</label>
-         <input 
-            type="text" 
-            className="form-control mb-2"
-            placeholder="Afegeix status_id"
-            onChange={ e => setStat(e.target.value)  }
-            value = { status_id }
-         />
-         <label>asset_id</label>
-         <input 
-            type="text" 
-            className="form-control mb-2"
-            placeholder="Afegeix asset_id"
-            onChange={ e => setAss(e.target.value)  }
-            value = { asset_id }
-         />
+                    <label>create</label>
+                    <input 
+                      type="date" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix asset_id"
+                      onChange={ e => setcrea(e.target.value)  }
+                      value = { create }
+                    />
 
-         {
-            modeEdicio ? (
-
-              <button 
-              className="btn btn-warning btn-block" 
-              type="submit">
-                Editar
-              </button>
-
-            )  :
-            (
-              <button 
-              className="btn btn-secondary" 
-              type="submit">
-                Afegir
-              </button>
-            )
+                    <label>update</label>
+                    <input 
+                      type="date" 
+                      className="form-control mb-2"
+                      placeholder="Afegeix asset_id"
+                      onChange={ e => setupd(e.target.value)  }
+                      value = { update }
+                    />
 
 
-         }
-        
-        </form>
+                    {
+                      modeEdicio ? (
+
+                        <button 
+                        className="btn btn-warning btn-block" 
+                        type="submit">
+                          Editar
+                        </button>
+
+                      )  :
+                      (
+                        <button 
+                        className="btn btn-secondary" 
+                        type="submit">
+                          Afegir
+                        </button>
+                      )
+
+                    }
+                  </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-  </div>
 
 
 
